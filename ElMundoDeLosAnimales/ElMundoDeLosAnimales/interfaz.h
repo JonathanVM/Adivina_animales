@@ -7,14 +7,14 @@
 
 class Interfaz {
 private:
-
+	std::string const MARGEN = "\t\t\t";
 public:
 	Interfaz();
 	~Interfaz();
-	void jugar();
-	void iniciar();
-	void resultado(bool);
+	void menu();
+	void juego();
 	bool adivinar();
+	void resultado(bool);
 };
 
 #endif // !INTERFAZ_H
