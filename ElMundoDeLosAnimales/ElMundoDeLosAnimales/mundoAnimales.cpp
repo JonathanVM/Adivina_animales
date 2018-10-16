@@ -37,6 +37,21 @@ NODOPTR MundoAnimales::adivinar(char opc = ' ') {
 	}
 	return actual;
 }
-NODOPTR MundoAnimales::crearNodo(std::string) {
 
+
+///<summary> Crea un nuevo nodo, siempre y cuando haya memoria disponible.</summary>
+///<returns>Retorna un nuevo nodo, o return null si no hay memoria </returns>
+NODOPTR MundoAnimales::crearNodo(std::string nuevo) {
+	NODOPTR nuevoNodo;
+	// Manejo de excepciones. Si no hay memoria para crear un nodo nuevo
+	// se lanza una excepción
+	//
+	try{
+		nuevoNodo = new nodo;
+		nuevoNodo->elemento;
+		nuevoNodo->left = nuevoNodo->right = nullptr;
+		return nuevoNodo;
+	}catch (std::bad_alloc exception){
+		return nullptr;
+	}
 }
