@@ -15,8 +15,13 @@ void MundoAnimales::guardarArchivo() {
 void MundoAnimales::valoresPorDefecto() {
 
 }
-void MundoAnimales::insertarNuevo(std::string, std::string) {
+void MundoAnimales::insertarNuevo(std::string caracteristica, std::string animal) {
+	NODOPTR carac = crearNodo(caracteristica);
+	NODOPTR anim = crearNodo(animal);
+	if (carac && anim) {
 
+	} else
+		throw "Ya no se pueden agregar mas animales";
 }
 void MundoAnimales::reiniciar() {
 	actual = anterior = root;
@@ -40,7 +45,7 @@ NODOPTR MundoAnimales::adivinar(char opc = ' ') {
 
 
 ///<summary> Crea un nuevo nodo, siempre y cuando haya memoria disponible.</summary>
-///<returns>Retorna un nuevo nodo, o return null si no hay memoria </returns>
+///<returns>Retorna un nuevo nodo, o retorna null si no hay memoria </returns>
 NODOPTR MundoAnimales::crearNodo(std::string nuevo) {
 	NODOPTR nuevoNodo;
 	// Manejo de excepciones. Si no hay memoria para crear un nodo nuevo
