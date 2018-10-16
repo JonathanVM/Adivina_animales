@@ -4,3 +4,7 @@
 *.ipch
 *.ipch
 *.ipch
+*.obj
+*.obj
+*.idb
+*.tlog
