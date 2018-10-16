@@ -1,7 +1,11 @@
 #include <iostream>
 #include "interfaz.h"
-#include "control.h"
-int main() {
 
+int main() {
+	Interfaz *inter = new Interfaz();
+	inter->juego();
+
+	system("pause");
+	delete inter;
 	return 0;
 }

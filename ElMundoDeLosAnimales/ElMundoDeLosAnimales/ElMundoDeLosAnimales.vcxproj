@@ -118,11 +118,13 @@
     <ClCompile Include="control.cpp" />
     <ClCompile Include="interfaz.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mundoAnimales.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arbolbin.h" />
     <ClInclude Include="control.h" />
     <ClInclude Include="interfaz.h" />
+    <ClInclude Include="mundoAnimales.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

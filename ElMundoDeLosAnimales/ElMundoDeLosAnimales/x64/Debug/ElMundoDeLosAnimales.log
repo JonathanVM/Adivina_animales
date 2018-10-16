@@ -1,0 +1,41 @@
+﻿  main.cpp
+interfaz.obj : error LNK2005: "void __cdecl borrarArbol(struct nodo *)" (?borrarArbol@@YAXPEAUnodo@@@Z) already defined in control.obj
+interfaz.obj : error LNK2005: "bool __cdecl borrarNodoChar(struct nodo * *,char)" (?borrarNodoChar@@YA_NPEAPEAUnodo@@D@Z) already defined in control.obj
+interfaz.obj : error LNK2005: "struct nodo * __cdecl buscarNodo(struct nodo *,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?buscarNodo@@YAPEAUnodo@@PEAU1@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) already defined in control.obj
+interfaz.obj : error LNK2005: "struct nodo * __cdecl cargarArbolDeArchivo(char)" (?cargarArbolDeArchivo@@YAPEAUnodo@@D@Z) already defined in control.obj
+interfaz.obj : error LNK2005: "struct nodo * __cdecl insertaNodoDesdeArchivo(class std::basic_ifstream<char,struct std::char_traits<char> > &,char)" (?insertaNodoDesdeArchivo@@YAPEAUnodo@@AEAV?$basic_ifstream@DU?$char_traits@D@std@@@std@@D@Z) already defined in control.obj
+interfaz.obj : error LNK2005: "void __cdecl insertarNodo(struct nodo * *,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?insertarNodo@@YAXPEAPEAUnodo@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) already defined in control.obj
+interfaz.obj : error LNK2005: "void __cdecl levelOrder(struct nodo *,int)" (?levelOrder@@YAXPEAUnodo@@H@Z) already defined in control.obj
+interfaz.obj : error LNK2005: "void __cdecl levelOrderTraversalIterativo(struct nodo *)" (?levelOrderTraversalIterativo@@YAXPEAUnodo@@@Z) already defined in control.obj
+interfaz.obj : error LNK2005: "void __cdecl levelOrderTraversalRecursivo(struct nodo *)" (?levelOrderTraversalRecursivo@@YAXPEAUnodo@@@Z) already defined in control.obj
+interfaz.obj : error LNK2005: "int __cdecl profundidad(struct nodo *)" (?profundidad@@YAHPEAUnodo@@@Z) already defined in control.obj
+interfaz.obj : error LNK2005: "void __cdecl recorridoEnOrden(struct nodo *)" (?recorridoEnOrden@@YAXPEAUnodo@@@Z) already defined in control.obj
+interfaz.obj : error LNK2005: "void __cdecl recorridoPosOrden(struct nodo *)" (?recorridoPosOrden@@YAXPEAUnodo@@@Z) already defined in control.obj
+interfaz.obj : error LNK2005: "void __cdecl recorridoPreOrden(struct nodo *)" (?recorridoPreOrden@@YAXPEAUnodo@@@Z) already defined in control.obj
+main.obj : error LNK2005: "void __cdecl borrarArbol(struct nodo *)" (?borrarArbol@@YAXPEAUnodo@@@Z) already defined in control.obj
+main.obj : error LNK2005: "bool __cdecl borrarNodoChar(struct nodo * *,char)" (?borrarNodoChar@@YA_NPEAPEAUnodo@@D@Z) already defined in control.obj
+main.obj : error LNK2005: "struct nodo * __cdecl buscarNodo(struct nodo *,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?buscarNodo@@YAPEAUnodo@@PEAU1@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) already defined in control.obj
+main.obj : error LNK2005: "struct nodo * __cdecl cargarArbolDeArchivo(char)" (?cargarArbolDeArchivo@@YAPEAUnodo@@D@Z) already defined in control.obj
+main.obj : error LNK2005: "struct nodo * __cdecl insertaNodoDesdeArchivo(class std::basic_ifstream<char,struct std::char_traits<char> > &,char)" (?insertaNodoDesdeArchivo@@YAPEAUnodo@@AEAV?$basic_ifstream@DU?$char_traits@D@std@@@std@@D@Z) already defined in control.obj
+main.obj : error LNK2005: "void __cdecl insertarNodo(struct nodo * *,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?insertarNodo@@YAXPEAPEAUnodo@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) already defined in control.obj
+main.obj : error LNK2005: "void __cdecl levelOrder(struct nodo *,int)" (?levelOrder@@YAXPEAUnodo@@H@Z) already defined in control.obj
+main.obj : error LNK2005: "void __cdecl levelOrderTraversalIterativo(struct nodo *)" (?levelOrderTraversalIterativo@@YAXPEAUnodo@@@Z) already defined in control.obj
+main.obj : error LNK2005: "void __cdecl levelOrderTraversalRecursivo(struct nodo *)" (?levelOrderTraversalRecursivo@@YAXPEAUnodo@@@Z) already defined in control.obj
+main.obj : error LNK2005: "int __cdecl profundidad(struct nodo *)" (?profundidad@@YAHPEAUnodo@@@Z) already defined in control.obj
+main.obj : error LNK2005: "void __cdecl recorridoEnOrden(struct nodo *)" (?recorridoEnOrden@@YAXPEAUnodo@@@Z) already defined in control.obj
+main.obj : error LNK2005: "void __cdecl recorridoPosOrden(struct nodo *)" (?recorridoPosOrden@@YAXPEAUnodo@@@Z) already defined in control.obj
+main.obj : error LNK2005: "void __cdecl recorridoPreOrden(struct nodo *)" (?recorridoPreOrden@@YAXPEAUnodo@@@Z) already defined in control.obj
+mundoAnimales.obj : error LNK2005: "void __cdecl borrarArbol(struct nodo *)" (?borrarArbol@@YAXPEAUnodo@@@Z) already defined in control.obj
+mundoAnimales.obj : error LNK2005: "bool __cdecl borrarNodoChar(struct nodo * *,char)" (?borrarNodoChar@@YA_NPEAPEAUnodo@@D@Z) already defined in control.obj
+mundoAnimales.obj : error LNK2005: "struct nodo * __cdecl buscarNodo(struct nodo *,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?buscarNodo@@YAPEAUnodo@@PEAU1@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) already defined in control.obj
+mundoAnimales.obj : error LNK2005: "struct nodo * __cdecl cargarArbolDeArchivo(char)" (?cargarArbolDeArchivo@@YAPEAUnodo@@D@Z) already defined in control.obj
+mundoAnimales.obj : error LNK2005: "struct nodo * __cdecl insertaNodoDesdeArchivo(class std::basic_ifstream<char,struct std::char_traits<char> > &,char)" (?insertaNodoDesdeArchivo@@YAPEAUnodo@@AEAV?$basic_ifstream@DU?$char_traits@D@std@@@std@@D@Z) already defined in control.obj
+mundoAnimales.obj : error LNK2005: "void __cdecl insertarNodo(struct nodo * *,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?insertarNodo@@YAXPEAPEAUnodo@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) already defined in control.obj
+mundoAnimales.obj : error LNK2005: "void __cdecl levelOrder(struct nodo *,int)" (?levelOrder@@YAXPEAUnodo@@H@Z) already defined in control.obj
+mundoAnimales.obj : error LNK2005: "void __cdecl levelOrderTraversalIterativo(struct nodo *)" (?levelOrderTraversalIterativo@@YAXPEAUnodo@@@Z) already defined in control.obj
+mundoAnimales.obj : error LNK2005: "void __cdecl levelOrderTraversalRecursivo(struct nodo *)" (?levelOrderTraversalRecursivo@@YAXPEAUnodo@@@Z) already defined in control.obj
+mundoAnimales.obj : error LNK2005: "int __cdecl profundidad(struct nodo *)" (?profundidad@@YAHPEAUnodo@@@Z) already defined in control.obj
+mundoAnimales.obj : error LNK2005: "void __cdecl recorridoEnOrden(struct nodo *)" (?recorridoEnOrden@@YAXPEAUnodo@@@Z) already defined in control.obj
+mundoAnimales.obj : error LNK2005: "void __cdecl recorridoPosOrden(struct nodo *)" (?recorridoPosOrden@@YAXPEAUnodo@@@Z) already defined in control.obj
+mundoAnimales.obj : error LNK2005: "void __cdecl recorridoPreOrden(struct nodo *)" (?recorridoPreOrden@@YAXPEAUnodo@@@Z) already defined in control.obj
+C:\Users\Elizabeth Hernandez\Documents\GitHub\Adivina_animales\ElMundoDeLosAnimales\x64\Debug\ElMundoDeLosAnimales.exe : fatal error LNK1169: one or more multiply defined symbols found

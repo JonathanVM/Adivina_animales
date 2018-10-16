@@ -68,7 +68,7 @@ void MundoAnimales::reiniciar() {
 	terminoJuego = false;
 }
 bool MundoAnimales::moverCaracteristica(unsigned int posActual, unsigned int posNueva) {
-
+	return false;
 }
 bool MundoAnimales::seguirPreguntando() {
 	return terminoJuego;
@@ -78,13 +78,18 @@ std::string MundoAnimales::adivinar(char opc = ' ') {
 	if (actual) {
 	//Evita que cuando es una hoja, se haga actual null, por un exceso de llamadas externas cuando el juego ya ha terminado.
 		if (actual->left && actual->right) {//Segun la logica del proyecto un nodo no hoja siempre tiene dos hijos.
-			anterior = actual;
-			if (opc == 'S')
-				actual = actual->right;
-			if (opc == 'N') 
+			if (opc == 'S') {
+				anterior = actual;
 				actual = actual->left;
-		} else
+			}
+			if (opc == 'N') {
+				anterior = actual;
+				actual = actual->right;
+			}
+		}
+		else {
 			terminoJuego = true;
+		}
 		valor = actual->elemento;
 	}
 	return valor;
