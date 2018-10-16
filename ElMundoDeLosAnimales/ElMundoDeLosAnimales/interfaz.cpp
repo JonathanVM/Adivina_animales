@@ -41,10 +41,6 @@ void Interfaz::juego() {
 
 bool Interfaz::adivinar() {
 
-	
-	
-
-
 }
 
 void Interfaz::resultado(bool result) {
@@ -60,9 +56,9 @@ void Interfaz::resultado(bool result) {
 		std::cout << MARGEN << "\nMencione una caracteristica relevante: ";
 		std::cin >> caracteristica;
 
-		control.agregar(nombre,caracteristica);
-		control.reiniciar();
-		control.terminar();
+		control->agregar(nombre,caracteristica);
+		control->reiniciar();
+		control->terminar();
 	}
 	std::string opcion;
 	std::cout << MARGEN << "1. Volver a jugar\n\n";
