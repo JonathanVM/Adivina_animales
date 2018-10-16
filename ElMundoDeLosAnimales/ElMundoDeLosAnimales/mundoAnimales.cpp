@@ -68,7 +68,7 @@ void MundoAnimales::reiniciar() {
 	terminoJuego = false;
 }
 bool MundoAnimales::moverCaracteristica(unsigned int posActual, unsigned int posNueva) {
-
+	return false;
 }
 bool MundoAnimales::seguirPreguntando() {
 	return terminoJuego;

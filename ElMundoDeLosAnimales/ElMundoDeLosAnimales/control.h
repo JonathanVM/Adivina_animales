@@ -1,12 +1,13 @@
 #ifndef CONTROL_H
 #define CONTROL_H
+#include "mundoAnimales.h"
 
 #include <iostream>
 #include <string>
 
 class Control {
 private:
-
+	MundoAnimales *mundoA;
 public:
 	Control();
 	~Control();
@@ -15,7 +16,8 @@ public:
 	void reiniciar();
 	void terminar();
 	void mover(unsigned int, unsigned int);
-	
+	std::string obtenerActual(char);
+	bool seguirJuego();
 };
 
 #endif // !CONTROL_H
