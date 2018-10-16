@@ -1,15 +1,12 @@
 #include "interfaz.h"
 
 Interfaz::Interfaz() {
-
+	control = new Control();
 }
 Interfaz::~Interfaz() {
-
+	delete control;
 }
 
-
-void Interfaz::juego() {
-}
 void Interfaz::menu() {
 	std::cout << 
 		MARGEN << "---------------------------------------------------------------\n" <<
@@ -24,7 +21,57 @@ void Interfaz::menu() {
 		MARGEN << "|                                                             |\n" <<
 		MARGEN << "---------------------------------------------------------------\n\n" <<
 		MARGEN << "      Digite una opcion: ";
+}
+
+void Interfaz::juego() {
+	std::string opcion;
+
+	do {
+		system("cls");
+		menu();
+		std::cin >> opcion;
+		if (opcion == "1") {
+			resultado(adivinar());
+		}
+		else if (opcion == "2") {
+			//modificar
+		}
+	} while (opcion != "3");
+}
+
+bool Interfaz::adivinar() {
+
+	
+	
 
 
 }
 
+void Interfaz::resultado(bool result) {
+	if (result) {
+		std::cout << MARGEN << "YO GANE!\n\n";
+	}
+	else {
+		std::string nombre, caracteristica;
+		std::cout << MARGEN << "HE PERDIDO!\n\n";
+		std::cout << MARGEN << "Digite el nombre: ";
+		std::cin >> nombre;
+
+		std::cout << MARGEN << "\nMencione una caracteristica relevante: ";
+		std::cin >> caracteristica;
+
+		control.agregar(nombre,caracteristica);
+		control.reiniciar();
+		control.terminar();
+	}
+	std::string opcion;
+	std::cout << MARGEN << "1. Volver a jugar\n\n";
+	std::cout << MARGEN << "2. Salir\n\n";
+	std::cin >> opcion;
+	if (opcion == "1") {
+		juego();
+	}
+	else if (opcion == "2") {
+		system("exit");
+	}
+}

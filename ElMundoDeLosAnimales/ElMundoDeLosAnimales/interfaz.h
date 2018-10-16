@@ -8,6 +8,7 @@
 class Interfaz {
 private:
 	std::string const MARGEN = "\t\t\t";
+	Control *control;
 public:
 	Interfaz();
 	~Interfaz();
