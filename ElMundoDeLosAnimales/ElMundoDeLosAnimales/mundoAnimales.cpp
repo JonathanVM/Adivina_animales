@@ -2,6 +2,7 @@
 
 MundoAnimales::MundoAnimales() {
 	root = actual = anterior = nullptr;
+	terminoJuego = false;
 }
 MundoAnimales::~MundoAnimales() {
 
@@ -19,28 +20,42 @@ void MundoAnimales::insertarNuevo(std::string caracteristica, std::string animal
 	NODOPTR carac = crearNodo(caracteristica);
 	NODOPTR anim = crearNodo(animal);
 	if (carac && anim) {
-
+		carac->left = anterior->right;
+		carac->right = anim;
+		anterior->right = carac;
 	} else
 		throw "Ya no se pueden agregar mas animales";
 }
 void MundoAnimales::reiniciar() {
 	actual = anterior = root;
+	terminoJuego = false;
 }
 bool MundoAnimales::moverCaracteristica(unsigned int posActual, unsigned int posNueva) {
 
 }
-NODOPTR MundoAnimales::adivinar(char opc = ' ') {
+bool MundoAnimales::seguirPreguntando() {
+	return terminoJuego;
+}
+std::string MundoAnimales::adivinar(char opc = ' ') {
+	std::string valor = "";
 	if (actual) {
-		if (opc == 'S') {
-			anterior = actual;
-			actual = actual->left;
+	//Evita que cuando es una hoja, se haga actual null, por un exceso de llamadas externas cuando el juego ya ha terminado.
+		if (actual->left && actual->right) {//Segun la logica del proyecto un nodo no hoja siempre tiene dos hijos.
+			if (opc == 'S') {
+				anterior = actual;
+				actual = actual->left;
+			}
+			if (opc == 'N') {
+				anterior = actual;
+				actual = actual->right;
+			}
 		}
-		if (opc == 'N') {
-			anterior = actual;
-			actual = actual->right;
+		else {
+			terminoJuego = true;
 		}
+		valor = actual->elemento;
 	}
-	return actual;
+	return valor;
 }
 
 
@@ -48,9 +63,6 @@ NODOPTR MundoAnimales::adivinar(char opc = ' ') {
 ///<returns>Retorna un nuevo nodo, o retorna null si no hay memoria </returns>
 NODOPTR MundoAnimales::crearNodo(std::string nuevo) {
 	NODOPTR nuevoNodo;
-	// Manejo de excepciones. Si no hay memoria para crear un nodo nuevo
-	// se lanza una excepción
-	//
 	try{
 		nuevoNodo = new nodo;
 		nuevoNodo->elemento;
