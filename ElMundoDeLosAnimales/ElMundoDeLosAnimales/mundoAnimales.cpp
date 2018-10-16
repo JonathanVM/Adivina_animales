@@ -14,7 +14,44 @@ void MundoAnimales::guardarArchivo() {
 
 }
 void MundoAnimales::valoresPorDefecto() {
-
+	NODOPTR ave = crearNodo("ave");
+	NODOPTR aguila = crearNodo("Aguila");
+	NODOPTR reptil = crearNodo("reptil");
+	NODOPTR lagarto = crearNodo("Lagarto");
+	NODOPTR mamifero = crearNodo("mamifero");
+	NODOPTR acuatico = crearNodo("acuatico");
+	NODOPTR ballena = crearNodo("Ballena");
+	NODOPTR maulla = crearNodo("maulla");
+	NODOPTR gato = crearNodo("Gato");
+	NODOPTR perro = crearNodo("Perro");
+	NODOPTR pez = crearNodo("pez");
+	NODOPTR beta = crearNodo("Beta");
+	NODOPTR invertebrado = crearNodo("invertebrado");
+	NODOPTR arana = crearNodo("Arana");
+	NODOPTR anfibio = crearNodo("anfibio");
+	NODOPTR rana = crearNodo("Rana");
+	NODOPTR culebra = crearNodo("Culebra");
+	if (ave && aguila && reptil && lagarto && mamifero && acuatico && ballena && maulla 
+		&& gato && perro && pez && beta && invertebrado && arana && anfibio && rana && culebra) {
+		ave->right = aguila;
+		ave->left = reptil;
+		reptil->right = lagarto;
+		reptil->left = mamifero;
+		mamifero->right = acuatico;
+		acuatico->right = ballena;
+		acuatico->left = maulla;
+		maulla->right = gato;
+		maulla->left = perro;
+		mamifero->left = pez;
+		pez->right = beta;
+		pez->left = invertebrado;
+		invertebrado->right = arana;
+		invertebrado->left = anfibio;
+		anfibio->right = rana;
+		anfibio->left = culebra;
+		root = actual = anterior = ave;
+	} else
+		throw "Ya no se pueden agregar mas animales";
 }
 void MundoAnimales::insertarNuevo(std::string caracteristica, std::string animal) {
 	NODOPTR carac = crearNodo(caracteristica);
