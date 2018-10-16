@@ -21,7 +21,7 @@ void MundoAnimales::insertarNuevo(std::string, std::string) {
 void MundoAnimales::reiniciar() {
 	actual = anterior = root;
 }
-bool MundoAnimales::moverCaracteristica(unsigned int, unsigned int) {
+bool MundoAnimales::moverCaracteristica(unsigned int posActual, unsigned int posNueva) {
 
 }
 NODOPTR MundoAnimales::adivinar(char opc = ' ') {
