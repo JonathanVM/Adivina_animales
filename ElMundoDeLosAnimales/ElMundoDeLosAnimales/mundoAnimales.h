@@ -8,6 +8,7 @@ private:
 	NODOPTR root;
 	NODOPTR actual;
 	NODOPTR anterior;
+	bool terminoJuego;
 public:
 	MundoAnimales();
 	~MundoAnimales();
@@ -17,7 +18,8 @@ public:
 	void insertarNuevo(std::string, std::string);//Tal vez recibir nodos creados en el control y ahi verificar si hay mas memoria disponible.
 	void reiniciar();
 	bool moverCaracteristica(unsigned int, unsigned int);
-	NODOPTR adivinar(char opcion);
+	bool seguirPreguntando();
+	std::string adivinar(char opcion);
 	NODOPTR crearNodo(std::string);//Verifica si hay memoria o no.
 };
 
