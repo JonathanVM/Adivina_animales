@@ -79,11 +79,17 @@ bool Interfaz::adivinar() {
 
 void Interfaz::resultado(bool result) {
 	if (result) {
-		std::cout << MARGEN << "      YO GANE!\n\n";
+		std::cout << "\n\n" <<
+			MARGEN << "--------------------------------------------------------------\n" <<
+			MARGEN << "|                          YO GANE!                          |\n" <<
+			MARGEN << "--------------------------------------------------------------\n\n";
 	}
 	else {
 		std::string nombre, caracteristica;
-		std::cout << MARGEN << "      HE PERDIDO!\n\n";
+		std::cout << "\n\n" <<
+			MARGEN << "--------------------------------------------------------------\n" <<
+			MARGEN << "|                         HE PERDIDO!                        |\n" <<
+			MARGEN << "--------------------------------------------------------------\n\n";
 		std::cout << MARGEN << "      Agreguemos el animal en que pensabas\n\n";
 		std::cout << MARGEN << "      Digite el nombre del animal: ";
 		std::cin >> nombre;
