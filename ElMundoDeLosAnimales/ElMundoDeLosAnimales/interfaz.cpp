@@ -60,7 +60,7 @@ bool Interfaz::adivinar() {
 		MARGEN << "|                                                            |\n" <<
 		MARGEN << "--------------------------------------------------------------\n\n";
 
-	while (true) {	
+	while (!salir || !correcto) {
 		if (correcto) {
 			stringActual = control->obtenerActual(respuesta);
 			salir = control->finDelJuego();
@@ -75,14 +75,10 @@ bool Interfaz::adivinar() {
 			respuesta = 'N';
 			correcto = true;
 		}
-		else {
+		else
 			correcto = false;
-		}
-
-		if (salir && correcto) {
-			return (respuesta == 'S');
-		}
 	}
+	return (respuesta == 'S');
 }
 
 void Interfaz::resultado(bool result) {
@@ -106,8 +102,6 @@ void Interfaz::resultado(bool result) {
 		std::cout << "\n\n";
 		control->agregar(caracteristica, nombre);
 		std::cout << MARGEN << "      Agregado correctamente, hasta la proxima\n\n";
-		control->reiniciar();
-		control->terminar();
 	}
 }
 
