@@ -32,6 +32,7 @@ void Interfaz::juego() {
 		std::cin >> opcion;
 		if (opcion == "1") {
 			resultado(adivinar());
+			volverJuego();
 		}
 		else if (opcion == "2") {
 			//modificar
@@ -116,7 +117,7 @@ void Interfaz::volverJuego() {
 	else if (opcion == "2") {
 		menu();
 	}
-	else if (opcion == "2") {
+	else if (opcion == "3") {
 		system("exit");
 	}
 }
