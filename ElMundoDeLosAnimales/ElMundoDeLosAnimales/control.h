@@ -1,6 +1,7 @@
+
+#include "mundoAnimales.h"
 #ifndef CONTROL_H
 #define CONTROL_H
-#include "mundoAnimales.h"
 
 #include <iostream>
 #include <string>

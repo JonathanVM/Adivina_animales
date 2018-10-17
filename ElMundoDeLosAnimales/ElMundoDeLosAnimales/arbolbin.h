@@ -18,8 +18,6 @@ typedef struct nodo* NODOPTR;
 //#############################################################
 //                PROTOTIPOS DE FUNCIÓN                      ##   
 //#############################################################
-NODOPTR cargarArbolDeArchivo(char);
-NODOPTR insertaNodoDesdeArchivo(std::ifstream&, char);
 int profundidad(NODOPTR);
 void recorridoPreOrden(NODOPTR);
 void recorridoEnOrden(NODOPTR);
@@ -27,69 +25,9 @@ void recorridoPosOrden(NODOPTR);
 void levelOrderTraversalRecursivo(NODOPTR);
 void levelOrder(NODOPTR, int);
 void levelOrderTraversalIterativo(NODOPTR);
-void insertarNodo(NODOPTR*, std::string);
 void borrarArbol(NODOPTR);
 NODOPTR buscarNodo(NODOPTR, std::string);
-bool borrarNodoChar(NODOPTR*, char);
 //#############################################################
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-// WRAPPER - Inserta nodos en el árbol, a partir de un archivo. Se crea un árbol de acuerdo al tipo de
-// datos deseado. Si la función se llama con la letra 'c', se crea un árbol de char. Si la función se
-// llama con la letra 'i', se crea un árbol de int.
-// Retorna un apuntador a la raíz del árbol
-NODOPTR cargarArbolDeArchivo(char tipo) {
-	std::string filename;
-
-	if (tipo == 'c')
-		filename = "arbolchar.txt";
-	else if (tipo == 'i')
-		filename = "arbolint.txt";
-	else
-		return nullptr;
-
-	std::ifstream handle(filename, std::ios::in);
-	if (!handle) {
-		return nullptr;
-	}
-
-	NODOPTR tmp = insertaNodoDesdeArchivo(handle, tipo);
-	handle.close();
-	return tmp;
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-// Función Auxiliar para crear un árbol binario tipo char desde el archivo manejado por "handle"
-// La función retorna un apuntador de tipo NODOPTR a la raíz del árbol
-NODOPTR insertaNodoDesdeArchivo(std::ifstream& handle, char tipo) {
-	char c;
-	int x;
-	NODOPTR tmp;
-
-	switch (tipo) {
-	case 'c':
-		handle.get(c);
-		if (c == '$')
-			return nullptr;
-		tmp = new NODO;
-		tmp->elemento = c;
-		break;
-	case 'i':
-		handle >> x;
-		if (x == -1)
-			return nullptr;
-		tmp = new NODO;
-		tmp->elemento = x;
-		break;
-	default:
-		tmp = nullptr;
-		break;
-	}
-	tmp->left = insertaNodoDesdeArchivo(handle, tipo);
-	tmp->right = insertaNodoDesdeArchivo(handle, tipo);
-	return tmp;
-}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 // Calcula la profundidad (altura) del árbol. Retorna el valor de la profundidad (Depth)
@@ -175,41 +113,6 @@ void levelOrderTraversalIterativo(NODOPTR actual) {
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-// Inserta un nuevo nodo en el árbol. Encuentra el primer
-// espacio disponible en un nivel del árbol
-void insertarNodo(NODOPTR* actual, std::string dato) {
-	std::queue<NODOPTR> Cola;
-	NODOPTR tmp;
-	NODOPTR nuevo = new NODO;
-	nuevo->elemento = dato;
-	nuevo->left = nullptr;
-	nuevo->right = nullptr;
-
-	if (!actual) {
-		*actual = nuevo;
-		return;
-	}
-
-	Cola.push(*actual);
-	while (!Cola.empty()) {
-		tmp = Cola.front();
-		Cola.pop();
-		if (tmp->left)
-			Cola.push(tmp);
-		else {
-			tmp->left = nuevo;
-			return;
-		}
-		if (tmp->right)
-			Cola.push(tmp);
-		else {
-			tmp->right = nuevo;
-			return;
-		}
-	}
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////
 // Elimina el árbol completo, nodo por nodo. Utiliza un recorrido Pos Orden para tal fin.
 void borrarArbol(NODOPTR actual) {
 	if (actual != nullptr) {
@@ -235,10 +138,4 @@ NODOPTR buscarNodo(NODOPTR actual, std::string dato) {
 	return nullptr;
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-// Elimina el nodo que contiene el dato dado por el usuario. Retorna TRUE si el nodo fue borrado con éxito
-// y FALSE en caso contrario. Versión CHAR
-bool borrarNodoChar(NODOPTR* actual, char dato) {
-	return false;
-}
 #endif

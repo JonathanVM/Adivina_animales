@@ -9,17 +9,17 @@ Interfaz::~Interfaz() {
 
 void Interfaz::menu() {
 	std::cout << 
-		MARGEN << "---------------------------------------------------------------\n" <<
-		MARGEN << "|                                                             |\n" <<
-		MARGEN << "|             BIENVENIDO AL MUNDO DE LOS ANIMALES             |\n" <<
-		MARGEN << "|                                                             |\n" <<
-		MARGEN << "|-------------------------------------------------------------|\n" <<
-		MARGEN << "|                                                             |\n" << 
-		MARGEN << "|     1. Adivinar animal                                      |\n" <<
-		MARGEN << "|     2. Reordenar carteristica                               |\n" <<
-		MARGEN << "|     3. Salir                                                |\n" << 
-		MARGEN << "|                                                             |\n" <<
-		MARGEN << "---------------------------------------------------------------\n\n" <<
+		MARGEN << "--------------------------------------------------------------\n" <<
+		MARGEN << "|                                                            |\n" <<
+		MARGEN << "|                  EL MUNDO DE LOS ANIMALES                  |\n" <<
+		MARGEN << "|                                                            |\n" <<
+		MARGEN << "|------------------------------------------------------------|\n" <<
+		MARGEN << "|                                                            |\n" << 
+		MARGEN << "|     1. Adivinar animal                                     |\n" <<
+		MARGEN << "|     2. Reordenar carteristica                              |\n" <<
+		MARGEN << "|     3. Salir                                               |\n" << 
+		MARGEN << "|                                                            |\n" <<
+		MARGEN << "--------------------------------------------------------------\n\n" <<
 		MARGEN << "      Digite una opcion: ";
 }
 
@@ -42,25 +42,41 @@ void Interfaz::juego() {
 
 bool Interfaz::adivinar() {
 	char respuesta = ' ';
-	std::string pregunta;
-	bool salir = false;
+	std::string pregunta, stringActual;
+	bool salir = false, correcto = true;
+
+	system("cls");
+	std::cout <<
+		MARGEN << "--------------------------------------------------------------\n" <<
+		MARGEN << "|                                                            |\n" <<
+		MARGEN << "|                  EL MUNDO DE LOS ANIMALES                  |\n" <<
+		MARGEN << "|                                                            |\n" <<
+		MARGEN << "|------------------------------------------------------------|\n\n";
+
 	while (true) {
-		std::cout << MARGEN << "Esta pensando en " << control->obtenerActual(respuesta) << "?: ";
-		std::cout << MARGEN << "1. Si \t\t 2. No";
+		salir = control->seguirJuego();
+		if (correcto) {
+			stringActual = control->obtenerActual(respuesta);
+		}
+		std::cout << MARGEN << "\n\nEsta pensando en " << stringActual << "?: \n" <<
+			MARGEN << "1. Si \t\t 2. No\n";
 		std::cout << MARGEN;
 		std::cin >> pregunta;
 		if (pregunta == "Si") {
 			respuesta = 'S';
-			salir = true;
+			correcto = true;
 		}
-		else if(pregunta == "No"){
+		else if (pregunta == "No") {
 			respuesta = 'N';
-			salir = false;
+			correcto = true;
 		}
-		if (control->seguirJuego())
-			continue;
-		else
-			return salir;
+		else {
+			correcto = false;
+		}
+
+		if (salir && correcto) {
+			return (respuesta == 'S');
+		}
 	}
 }
 
