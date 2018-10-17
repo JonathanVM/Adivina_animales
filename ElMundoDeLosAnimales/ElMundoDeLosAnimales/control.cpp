@@ -31,6 +31,6 @@ std::string Control::obtenerActual(char obtener) {
 	return mundoA->adivinar(obtener);
 }
 
-bool Control::seguirJuego() {
-	return mundoA->seguirPreguntando();
+bool Control::finDelJuego() {
+	return mundoA->finDelJuego();
 }

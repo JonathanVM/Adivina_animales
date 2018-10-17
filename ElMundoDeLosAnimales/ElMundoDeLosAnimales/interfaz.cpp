@@ -32,6 +32,7 @@ void Interfaz::juego() {
 		std::cin >> opcion;
 		if (opcion == "1") {
 			resultado(adivinar());
+			control->reiniciar();
 			volverJuego();
 		}
 		else if (opcion == "2") {
@@ -54,7 +55,7 @@ bool Interfaz::adivinar() {
 		MARGEN << "--------------------------------------------------------------\n\n";
 
 	while (true) {
-		salir = control->seguirJuego();
+		salir = control->finDelJuego();
 		if (correcto) {
 			stringActual = control->obtenerActual(respuesta);
 		}

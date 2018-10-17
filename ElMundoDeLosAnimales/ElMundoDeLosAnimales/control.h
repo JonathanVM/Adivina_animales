@@ -18,7 +18,7 @@ public:
 	void terminar();
 	void mover(unsigned int, unsigned int);
 	std::string obtenerActual(char);
-	bool seguirJuego();
+	bool finDelJuego();
 };
 
 #endif // !CONTROL_H
