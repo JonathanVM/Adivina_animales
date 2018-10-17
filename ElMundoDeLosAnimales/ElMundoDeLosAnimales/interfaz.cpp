@@ -98,7 +98,7 @@ void Interfaz::resultado(bool result) {
 		std::cout << "\n" << MARGEN << "      Mencione una caracteristica relevante: ";
 		std::cin >> caracteristica;
 		std::cout << "\n\n";
-		control->agregar(nombre,caracteristica);
+		control->agregar(caracteristica, nombre);
 		std::cout << MARGEN << "      Agregado correctamente, hasta la proxima\n\n";
 		control->reiniciar();
 		control->terminar();
