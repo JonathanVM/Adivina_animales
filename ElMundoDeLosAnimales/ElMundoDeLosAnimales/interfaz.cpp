@@ -46,7 +46,7 @@ bool Interfaz::adivinar() {
 	bool salir = false, correcto = true;
 
 	system("cls");
-	std::cout <<
+	std::cout << "\n\n" <<
 		MARGEN << "--------------------------------------------------------------\n" <<
 		MARGEN << "|                                                            |\n" <<
 		MARGEN << "|                  EL MUNDO DE LOS ANIMALES                  |\n" <<
