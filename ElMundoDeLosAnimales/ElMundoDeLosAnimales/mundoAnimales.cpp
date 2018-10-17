@@ -92,7 +92,7 @@ bool MundoAnimales::moverCaracteristica(unsigned int posActual, unsigned int pos
 	return false;
 }
 */
-bool MundoAnimales::seguirPreguntando() {
+bool MundoAnimales::finDelJuego() {
 	return terminoJuego;
 }
 std::string MundoAnimales::adivinar(char opc = ' ') {
