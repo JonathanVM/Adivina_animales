@@ -33,7 +33,13 @@ void Interfaz::juego() {
 		if (opcion == "1") {
 			resultado(adivinar());
 			control->reiniciar();
-			volverJuego();
+			std::string nuevaOpcion = volverJuego();
+			if (nuevaOpcion == "1") {
+				adivinar();
+			}
+			else if (nuevaOpcion == "3") {
+				opcion = "3";
+			}
 		}
 		else if (opcion == "2") {
 			//modificar
@@ -105,20 +111,30 @@ void Interfaz::resultado(bool result) {
 	}
 }
 
-void Interfaz::volverJuego() {
-	std::string opcion;
-	std::cout << MARGEN << "      1. Volver a jugar\n\n";
-	std::cout << MARGEN << "      2. Volver al menu\n\n";
-	std::cout << MARGEN << "      3. Salir\n\n";
-	std::cout << MARGEN << "      Digite una opcion: ";
-	std::cin >> opcion;
-	if (opcion == "1") {
-		juego();
-	}
-	else if (opcion == "2") {
-		menu();
-	}
-	else if (opcion == "3") {
-		system("exit");
+std::string Interfaz::volverJuego() {
+	std::cout <<
+		MARGEN << "--------------------------------------------------------------\n" <<
+		MARGEN << "|                                                            |\n" <<
+		MARGEN << "|     1. Volver a jugar                                      |\n" <<
+		MARGEN << "|     2. Volver al menu                                      |\n" <<
+		MARGEN << "|     3. Salir                                               |\n" <<
+		MARGEN << "|                                                            |\n" <<
+		MARGEN << "--------------------------------------------------------------\n\n";
+
+	int cont = 0;
+	while (true) {
+		if (cont == 0) {
+			std::cout << MARGEN << "      Digite una opcion: ";
+			cont++;
+		}
+		else {
+			std::cout << MARGEN << "      Digite una opcion valida: ";
+		}
+		std::string opcion;
+		std::cin >> opcion;
+		std::cout << "\n";
+		if (opcion == "1" || opcion == "2" || opcion == "3") {
+			return opcion;
+		}
 	}
 }
