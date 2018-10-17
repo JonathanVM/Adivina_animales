@@ -8,7 +8,7 @@ Interfaz::~Interfaz() {
 }
 
 void Interfaz::menu() {
-	std::cout << 
+	std::cout << "\n\n" <<
 		MARGEN << "--------------------------------------------------------------\n" <<
 		MARGEN << "|                                                            |\n" <<
 		MARGEN << "|                  EL MUNDO DE LOS ANIMALES                  |\n" <<
