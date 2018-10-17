@@ -57,7 +57,7 @@ bool Interfaz::adivinar() {
 		if (correcto) {
 			stringActual = control->obtenerActual(respuesta);
 		}
-		std::cout << "\n" << MARGEN << "      Esta pensando en " << stringActual << " (Si/No)?: ";
+		std::cout << "\n" << MARGEN << "      Esta pensando en \"" << stringActual << "\" (Si/No)?: ";
 		std::cin >> pregunta;
 		if (pregunta == "Si") {
 			respuesta = 'S';

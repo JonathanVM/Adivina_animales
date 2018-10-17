@@ -3,6 +3,7 @@
 MundoAnimales::MundoAnimales() {
 	root = actual = anterior = nullptr;
 	terminoJuego = false;
+	valoresPorDefecto();
 }
 MundoAnimales::~MundoAnimales() {
 
@@ -123,7 +124,7 @@ NODOPTR MundoAnimales::crearNodo(std::string nuevo) {
 	NODOPTR nuevoNodo;
 	try{
 		nuevoNodo = new nodo;
-		nuevoNodo->elemento;
+		nuevoNodo->elemento = nuevo;
 		nuevoNodo->left = nuevoNodo->right = nullptr;
 		return nuevoNodo;
 	}catch (std::bad_alloc exception){
