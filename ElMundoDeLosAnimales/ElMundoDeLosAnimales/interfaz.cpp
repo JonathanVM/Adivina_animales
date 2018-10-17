@@ -33,6 +33,7 @@ void Interfaz::juego() {
 		if (opcion == "1") {
 			resultado(adivinar());
 			control->reiniciar();
+			volverJuego();
 		}
 		else if (opcion == "2") {
 			//modificar
@@ -102,15 +103,22 @@ void Interfaz::resultado(bool result) {
 		control->reiniciar();
 		control->terminar();
 	}
+}
+
+void Interfaz::volverJuego() {
 	std::string opcion;
 	std::cout << MARGEN << "      1. Volver a jugar\n\n";
-	std::cout << MARGEN << "      2. Salir\n\n";
+	std::cout << MARGEN << "      2. Volver al menu\n\n";
+	std::cout << MARGEN << "      3. Salir\n\n";
 	std::cout << MARGEN << "      Digite una opcion: ";
 	std::cin >> opcion;
 	if (opcion == "1") {
 		juego();
 	}
 	else if (opcion == "2") {
+		menu();
+	}
+	else if (opcion == "3") {
 		system("exit");
 	}
 }

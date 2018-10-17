@@ -14,6 +14,7 @@ public:
 	~Interfaz();
 	void menu();
 	void juego();
+	void volverJuego();
 	bool adivinar();
 	void resultado(bool);
 };
