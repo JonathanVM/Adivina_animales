@@ -12,8 +12,8 @@ void Control::jugar(std::string) {
 
 }
 
-void Control::agregar(std::string nombre, std::string caracteristica) {
-	mundoA->insertarNuevo(nombre,caracteristica);
+void Control::agregar(std::string caracteristica, std::string animal) {
+	mundoA->insertarNuevo(caracteristica,animal);
 }
 
 void Control::reiniciar() {
