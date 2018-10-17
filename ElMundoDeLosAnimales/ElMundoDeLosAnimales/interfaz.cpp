@@ -54,10 +54,10 @@ bool Interfaz::adivinar() {
 		MARGEN << "|                                                            |\n" <<
 		MARGEN << "--------------------------------------------------------------\n\n";
 
-	while (true) {
-		salir = control->finDelJuego();
+	while (true) {	
 		if (correcto) {
 			stringActual = control->obtenerActual(respuesta);
+			salir = control->finDelJuego();
 		}
 		std::cout << "\n" << MARGEN << "      Esta pensando en \"" << stringActual << "\" (Si/No)?: ";
 		std::cin >> pregunta;
