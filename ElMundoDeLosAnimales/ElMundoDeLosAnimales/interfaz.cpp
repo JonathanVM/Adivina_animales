@@ -29,14 +29,7 @@ void Interfaz::juego() {
 	do {
 		system("cls");
 		menu();
-		while (true) {
-			std::cin >> opcion;
-			if (opcion == "1" || opcion == "2" || opcion == "3")
-				break;
-			else 
-				std::cout << MARGEN << "      Digite una opcion valida: ";
-		}
-
+		std::cin >> opcion;
 		if (opcion == "2") {
 			//modificar
 		}
@@ -119,6 +112,7 @@ void Interfaz::resultado(bool result) {
 }
 
 std::string Interfaz::volverJuego() {
+	std::string opcion;
 	std::cout <<
 		MARGEN << "--------------------------------------------------------------\n" <<
 		MARGEN << "|                                                            |\n" <<
@@ -126,22 +120,15 @@ std::string Interfaz::volverJuego() {
 		MARGEN << "|     2. Volver al menu                                      |\n" <<
 		MARGEN << "|     3. Salir                                               |\n" <<
 		MARGEN << "|                                                            |\n" <<
-		MARGEN << "--------------------------------------------------------------\n\n";
-
-	int cont = 0;
-	while (true) {
-		if (cont == 0) {
-			std::cout << MARGEN << "      Digite una opcion: ";
-			cont++;
-		}
-		else {
-			std::cout << MARGEN << "      Digite una opcion valida: ";
-		}
-		std::string opcion;
+		MARGEN << "--------------------------------------------------------------\n\n" <<
+		MARGEN << "      Digite una opcion: ";
+	
+	std::cin >> opcion;
+	std::cout << "\n";
+	while (opcion != "1" && opcion != "2" && opcion != "3") {
+		std::cout << MARGEN << "      Digite una opcion valida: ";
 		std::cin >> opcion;
 		std::cout << "\n";
-		if (opcion == "1" || opcion == "2" || opcion == "3") {
-			return opcion;
-		}
 	}
+	return opcion;
 }
