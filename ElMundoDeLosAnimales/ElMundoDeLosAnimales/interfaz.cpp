@@ -51,7 +51,7 @@ bool Interfaz::adivinar() {
 		MARGEN << "|                                                            |\n" <<
 		MARGEN << "|                  EL MUNDO DE LOS ANIMALES                  |\n" <<
 		MARGEN << "|                                                            |\n" <<
-		MARGEN << "|------------------------------------------------------------|\n\n";
+		MARGEN << "--------------------------------------------------------------\n\n";
 
 	while (true) {
 		salir = control->seguirJuego();
