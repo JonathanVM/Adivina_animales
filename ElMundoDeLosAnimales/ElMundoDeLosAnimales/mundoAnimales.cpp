@@ -102,11 +102,11 @@ std::string MundoAnimales::adivinar(char opc = ' ') {
 		if (actual->left && actual->right) {//Segun la logica del proyecto un nodo no hoja siempre tiene dos hijos.
 			if (opc == 'S') {
 				anterior = actual;
-				actual = actual->left;
+				actual = actual->right;
 			}
 			if (opc == 'N') {
 				anterior = actual;
-				actual = actual->right;
+				actual = actual->left;
 			}
 		}
 		else {
