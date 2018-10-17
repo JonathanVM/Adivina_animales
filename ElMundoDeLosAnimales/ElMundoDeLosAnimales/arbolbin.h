@@ -18,15 +18,15 @@ typedef struct nodo* NODOPTR;
 //#############################################################
 //                PROTOTIPOS DE FUNCIÓN                      ##   
 //#############################################################
-int profundidad(NODOPTR);
-void recorridoPreOrden(NODOPTR);
-void recorridoEnOrden(NODOPTR);
-void recorridoPosOrden(NODOPTR);
-void levelOrderTraversalRecursivo(NODOPTR);
-void levelOrder(NODOPTR, int);
-void levelOrderTraversalIterativo(NODOPTR);
-void borrarArbol(NODOPTR);
-NODOPTR buscarNodo(NODOPTR, std::string);
+static int profundidad(NODOPTR);
+static void recorridoPreOrden(NODOPTR);
+static void recorridoEnOrden(NODOPTR);
+static void recorridoPosOrden(NODOPTR);
+static void levelOrderTraversalRecursivo(NODOPTR);
+static void levelOrder(NODOPTR, int);
+static void levelOrderTraversalIterativo(NODOPTR);
+static void borrarArbol(NODOPTR);
+static NODOPTR buscarNodo(NODOPTR, std::string);
 //#############################################################
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
