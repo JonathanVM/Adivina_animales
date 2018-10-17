@@ -31,7 +31,7 @@ static NODOPTR buscarNodo(NODOPTR, std::string);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 // Calcula la profundidad (altura) del árbol. Retorna el valor de la profundidad (Depth)
-extern int profundidad(NODOPTR actual) {
+int profundidad(NODOPTR actual) {
 	if (actual == nullptr)
 		return 0;
 	int maxizq = profundidad(actual->left);
@@ -44,7 +44,7 @@ extern int profundidad(NODOPTR actual) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 // Imprime el recorrido del árbol Pre Orden
-extern void recorridoPreOrden(NODOPTR actual) {
+void recorridoPreOrden(NODOPTR actual) {
 	if (actual != nullptr) {
 		std::cout << actual->elemento << " ";
 		recorridoPreOrden(actual->left);
