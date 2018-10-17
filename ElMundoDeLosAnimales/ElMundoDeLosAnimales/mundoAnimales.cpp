@@ -109,7 +109,7 @@ std::string MundoAnimales::adivinar(char opc = ' ') {
 				actual = actual->left;
 			}
 		}
-		else {
+		if(!actual->left && !actual->right) {
 			terminoJuego = true;
 		}
 		valor = actual->elemento;
