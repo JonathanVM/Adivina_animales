@@ -24,25 +24,32 @@ void Interfaz::menu() {
 }
 
 void Interfaz::juego() {
-	std::string opcion;
+	std::string opcion = "", nuevaOpcion = "";
 
 	do {
 		system("cls");
 		menu();
-		std::cin >> opcion;
-		if (opcion == "1") {
-			resultado(adivinar());
-			control->reiniciar();
-			std::string nuevaOpcion = volverJuego();
-			if (nuevaOpcion == "1") {
-				adivinar();
-			}
-			else if (nuevaOpcion == "3") {
-				opcion = "3";
-			}
+		while (true) {
+			std::cin >> opcion;
+			if (opcion == "1" || opcion == "2" || opcion == "3")
+				break;
+			else 
+				std::cout << MARGEN << "      Digite una opcion valida: ";
 		}
-		else if (opcion == "2") {
+
+		if (opcion == "2") {
 			//modificar
+		}
+		else {
+			while (opcion == "1") {
+				resultado(adivinar());
+				control->reiniciar();
+				nuevaOpcion = volverJuego();
+				if (nuevaOpcion != "1") {
+					opcion = nuevaOpcion;
+					break;
+				}
+			}
 		}
 	} while (opcion != "3");
 }
