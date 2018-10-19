@@ -19,8 +19,10 @@ public:
 	void leerArchivo();
 	void guardarArchivo();
 	void valoresPorDefecto();
-	void insertarNuevo(std::string, std::string);//Tal vez recibir nodos creados en el control y ahi verificar si hay mas memoria disponible.
+	bool insertarNuevo(std::string, std::string);//Tal vez recibir nodos creados en el control y ahi verificar si hay mas memoria disponible.
 	void reiniciar();
+	bool existePalabra(std::string,NODOPTR);
+	bool existePalabra(std::string);
 	//bool moverCaracteristica(unsigned int, unsigned int);
 	bool finDelJuego();
 	std::string adivinar(char opcion);

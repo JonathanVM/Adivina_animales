@@ -14,7 +14,7 @@ private:
 public:
 	Control();
 	~Control();
-	void agregar(std::string, std::string);
+	bool agregar(std::string, std::string);
 	void reiniciar();
 	void terminar();
 	void mover(unsigned int, unsigned int);
