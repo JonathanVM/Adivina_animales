@@ -88,11 +88,11 @@ bool MundoAnimales::existePalabra(std::string palabra, NODOPTR actual) {
 
 
 bool MundoAnimales::moverCaracteristica(unsigned int posActual, unsigned int posNueva, int metodo) {
-	
+	return true;
 }
 
 bool MundoAnimales::moverCaracteristicaArriba(NODOPTR inicio, NODOPTR final) {
-	
+	return false;
 }
 
 bool MundoAnimales::moverCaracteristicaAbajo(NODOPTR incio, NODOPTR final) {
@@ -151,4 +151,8 @@ NODOPTR MundoAnimales::crearNodo(std::string nuevo) {
 	}catch (std::bad_alloc exception){
 		return nullptr;
 	}
+}
+
+void MundoAnimales::imprimirArbol() {
+	levelOrderTraversalIterativo(root);
 }

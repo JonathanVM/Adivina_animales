@@ -1,7 +1,6 @@
 #include <iostream>
 #include "interfaz.h"
 
-
 ///<summary>
 ///Bienvenido a nuestro mundo de animales
 ///Integrantes:
@@ -12,5 +11,6 @@ int main() {
 	Interfaz *inter = new Interfaz();
 	inter->juego();
 	delete inter;
+
 	return 0;
 }

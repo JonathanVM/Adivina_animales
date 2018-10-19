@@ -23,6 +23,16 @@ void Interfaz::menu() {
 		MARGEN << "      Digite una opcion: ";
 }
 
+void Interfaz::imprimirTitulo() {
+	std::cout << "\n\n" <<
+		MARGEN << "--------------------------------------------------------------\n" <<
+		MARGEN << "|                                                            |\n" <<
+		MARGEN << "|                  EL MUNDO DE LOS ANIMALES                  |\n" <<
+		MARGEN << "|                                                            |\n" <<
+		MARGEN << "--------------------------------------------------------------\n\n";
+}
+
+
 void Interfaz::juego() {
 	std::string opcion = "", nuevaOpcion = "";
 
@@ -31,13 +41,20 @@ void Interfaz::juego() {
 		menu();
 		std::cin >> opcion;
 		if (opcion == "2") {
-			//modificar
+			while (opcion == "2") {
+				reordenar();
+				nuevaOpcion = volverJuego("modificar");
+				if (nuevaOpcion != "2") {
+					opcion = nuevaOpcion;
+					break;
+				}
+			}
 		}
 		else {
 			while (opcion == "1") {
 				resultado(adivinar());
 				control->reiniciar();
-				nuevaOpcion = volverJuego();
+				nuevaOpcion = volverJuego("jugar    ");
 				if (nuevaOpcion != "1") {
 					opcion = nuevaOpcion;
 					break;
@@ -53,12 +70,7 @@ bool Interfaz::adivinar() {
 	bool salir = false, correcto = true;
 
 	system("cls");
-	std::cout << "\n\n" <<
-		MARGEN << "--------------------------------------------------------------\n" <<
-		MARGEN << "|                                                            |\n" <<
-		MARGEN << "|                  EL MUNDO DE LOS ANIMALES                  |\n" <<
-		MARGEN << "|                                                            |\n" <<
-		MARGEN << "--------------------------------------------------------------\n\n";
+	imprimirTitulo();
 
 	while (!salir || !correcto) {
 		if (correcto) {
@@ -107,12 +119,12 @@ void Interfaz::resultado(bool result) {
 	}
 }
 
-std::string Interfaz::volverJuego() {
+std::string Interfaz::volverJuego(std::string mensaje) {
 	std::string opcion;
 	std::cout <<
 		MARGEN << "--------------------------------------------------------------\n" <<
 		MARGEN << "|                                                            |\n" <<
-		MARGEN << "|     1. Volver a jugar                                      |\n" <<
+		MARGEN << "|     1. Volver a " + mensaje + "                                  |\n" <<
 		MARGEN << "|     2. Volver al menu                                      |\n" <<
 		MARGEN << "|     3. Salir                                               |\n" <<
 		MARGEN << "|                                                            |\n" <<
@@ -127,4 +139,15 @@ std::string Interfaz::volverJuego() {
 		std::cout << "\n";
 	}
 	return opcion;
+}
+
+void Interfaz::reordenar() {
+
+	system("cls");
+	imprimirTitulo();
+	std::string nivelActual, nivelNuevo;
+
+	std::cout << MARGEN << "Digite el nivel a ";
+
+
 }

@@ -20,6 +20,7 @@ public:
 	void mover(unsigned int, unsigned int);
 	std::string siguientePalabra(char);
 	bool finDelJuego();
+	void imprimirArbol();
 };
 
 #endif // !CONTROL_H

@@ -30,6 +30,7 @@ public:
 	std::string adivinar(char opcion);
 	NODOPTR crearNodo(std::string);//Verifica si hay memoria o no.
 	NODOPTR obtenerCaracteristicaGeneral(unsigned int);
+	void imprimirArbol();
 
 
 	int const CARACTERISTICAS_GENERALES = 6;
