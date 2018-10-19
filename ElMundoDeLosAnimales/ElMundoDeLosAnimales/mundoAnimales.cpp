@@ -108,11 +108,11 @@ bool MundoAnimales::moverCaracteristica(unsigned int posActual, unsigned int pos
 
 bool MundoAnimales::moverCaracteristicaArriba(unsigned int posActual, unsigned int posNueva) {
 	NODOPTR inicio, destino, aux;
-	NODOPTR inicio = obtenerCaracteristicaGeneral(posActual-1);
+	inicio = obtenerCaracteristicaGeneral(posActual-1);
 	if(posNueva > 1)
-		NODOPTR destino = obtenerCaracteristicaGeneral(posNueva-1);
+		destino = obtenerCaracteristicaGeneral(posNueva-1);
 	else
-		NODOPTR destino = obtenerCaracteristicaGeneral(posNueva);
+		destino = obtenerCaracteristicaGeneral(posNueva);
 	
 	if (!inicio || !destino)
 		return false;
@@ -133,10 +133,10 @@ bool MundoAnimales::moverCaracteristicaArriba(unsigned int posActual, unsigned i
 bool MundoAnimales::moverCaracteristicaAbajo(unsigned int posActual, unsigned int posNueva) {
 	NODOPTR inicio, destino, aux;
 	if (posActual > 1) {
-		NODOPTR inicio = obtenerCaracteristicaGeneral(posActual-1);
+		inicio = obtenerCaracteristicaGeneral(posActual-1);
 	} else
-		NODOPTR inicio = obtenerCaracteristicaGeneral(posActual);
-	NODOPTR destino = obtenerCaracteristicaGeneral(posNueva);
+		inicio = obtenerCaracteristicaGeneral(posActual);
+	destino = obtenerCaracteristicaGeneral(posNueva);
 
 	if (!inicio || !destino)
 		return false;
