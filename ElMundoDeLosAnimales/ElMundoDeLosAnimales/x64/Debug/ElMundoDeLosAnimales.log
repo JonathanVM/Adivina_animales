@@ -1,1 +1,11 @@
-﻿  ElMundoDeLosAnimales.vcxproj -> C:\Users\Elizabeth Hernandez\Documents\GitHub\Adivina_animales\ElMundoDeLosAnimales\x64\Debug\ElMundoDeLosAnimales.exe
+﻿  Microsoft (R) C/C++ Optimizing Compiler Version 19.14.26433 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  cl /c /ZI /W3 /WX- /diagnostics:classic /sdl /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /permissive- /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc141.pdb" /doc"x64\Debug\\" /Gd /TP /FC /errorReport:prompt control.cpp interfaz.cpp main.cpp mundoAnimales.cpp
+  
+  control.cpp
+  interfaz.cpp
+  main.cpp
+  mundoAnimales.cpp
+  Generating Code...
+  ElMundoDeLosAnimales.vcxproj -> C:\Users\Elizabeth Hernandez\Documents\GitHub\Adivina_animales\ElMundoDeLosAnimales\x64\Debug\ElMundoDeLosAnimales.exe

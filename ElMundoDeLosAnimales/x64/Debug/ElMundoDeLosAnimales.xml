@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        "ElMundoDeLosAnimales"
+    </assembly>
+    <members>
+        <member name="M:MundoAnimales.crearNodo(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;)">
+            <summary> Crea un nuevo nodo, siempre y cuando haya memoria disponible.</summary>
+            <returns>Retorna un nuevo nodo, o retorna null si no hay memoria </returns>
+        </member>
+        <member name="M:main">
+            <summary>
+Bienvenido a nuestro mundo de animales
+Integrantes:
+Jonathan Vásquez Mora
+Delia Hernández Ruiz
+</summary>
+        </member>
+        <member name="M:buscarNodo(nodo*,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;)">
+            <summary> Busca el nodo que contiene el elemento dado por parámetro. </summary>
+            <returns> Retorna un apuntador al nodo encontrado o
+NULL si no lo encontró. </returns>
+        </member>
+        <member name="M:borrarArbol(nodo*)">
+            <summary> Elimina el árbol completo, nodo por nodo. Utiliza un recorrido Pos Orden para tal fin. </summary>
+        </member>
+        <member name="M:levelOrderTraversalIterativo(nodo*)">
+            <summary> Imprime el recorrido del árbol en Level-Order (Breadth-first search) ITERATIVO </summary>
+        </member>
+        <member name="M:levelOrder(nodo*,System.Int32)">
+            <summary> Auxiliar para el recorrido del árbol en Level-Order </summary>
+        </member>
+        <member name="M:levelOrderTraversalRecursivo(nodo*)">
+            <summary> WRAPPER - Imprime el recorrido del árbol en Level-Order (Breadth-first search) RECURSIVO </summary>
+        </member>
+        <member name="M:recorridoPosOrden(nodo*)">
+            <summary> Imprime el recorrido del árbol Pos Orden </summary>
+        </member>
+        <member name="M:recorridoEnOrden(nodo*)">
+            <summary> Imprime el recorrido del árbol En Orden </summary>
+        </member>
+        <member name="M:recorridoPreOrden(nodo*)">
+            <summary> Imprime el recorrido del árbol Pre Orden </summary>
+        </member>
+        <member name="M:profundidad(nodo*)">
+            <summary>Calcula la profundidad (altura) del árbol. </summary>
+            <returns>Retorna el valor de la profundidad (Depth) </returns>
+        </member>
+    </members>
+</doc>

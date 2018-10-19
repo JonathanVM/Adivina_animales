@@ -29,8 +29,9 @@ static void borrarArbol(NODOPTR);
 static NODOPTR buscarNodo(NODOPTR, std::string);
 //#############################################################
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-// Calcula la profundidad (altura) del árbol. Retorna el valor de la profundidad (Depth)
+///////////////////////////////////////////////////////////////////////
+///<summary>Calcula la profundidad (altura) del árbol. </summary>
+///<returns>Retorna el valor de la profundidad (Depth) </returns>
 int profundidad(NODOPTR actual) {
 	if (actual == nullptr)
 		return 0;
@@ -42,8 +43,8 @@ int profundidad(NODOPTR actual) {
 	return maxder + 1;
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-// Imprime el recorrido del árbol Pre Orden
+///////////////////////////////////////////////////////////////////////
+///<summary> Imprime el recorrido del árbol Pre Orden </summary>
 void recorridoPreOrden(NODOPTR actual) {
 	if (actual != nullptr) {
 		std::cout << actual->elemento << " ";
@@ -52,8 +53,8 @@ void recorridoPreOrden(NODOPTR actual) {
 	}
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-// Imprime el recorrido del árbol En Orden
+///////////////////////////////////////////////////////////////////////
+///<summary> Imprime el recorrido del árbol En Orden </summary>
 void recorridoEnOrden(NODOPTR actual) {
 	if (actual != nullptr) {
 		recorridoPreOrden(actual->left);
@@ -62,8 +63,8 @@ void recorridoEnOrden(NODOPTR actual) {
 	}
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-// Imprime el recorrido del árbol Pos Orden
+///////////////////////////////////////////////////////////////////////
+///<summary> Imprime el recorrido del árbol Pos Orden </summary>
 void recorridoPosOrden(NODOPTR actual) {
 	if (actual != nullptr) {
 		recorridoPreOrden(actual->left);
@@ -72,16 +73,16 @@ void recorridoPosOrden(NODOPTR actual) {
 	}
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-// WRAPPER - Imprime el recorrido del árbol en Level-Order (Breadth-first search) RECURSIVO
+///////////////////////////////////////////////////////////////////////
+///<summary> WRAPPER - Imprime el recorrido del árbol en Level-Order (Breadth-first search) RECURSIVO </summary>
 void levelOrderTraversalRecursivo(NODOPTR actual) {
 	int niveles = profundidad(actual) + 1;
 	for (int i = 1; i <= niveles; ++i)
 		levelOrder(actual, i);
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-// Auxiliar para el recorrido del árbol en Level-Order 
+///////////////////////////////////////////////////////////////////////
+/// <summary> Auxiliar para el recorrido del árbol en Level-Order </summary>
 void levelOrder(NODOPTR actual, int n) {
 	if (n == 1)
 		std::cout << actual->elemento << " ";
@@ -91,8 +92,8 @@ void levelOrder(NODOPTR actual, int n) {
 	}
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-// Imprime el recorrido del árbol en Level-Order (Breadth-first search) ITERATIVO
+///////////////////////////////////////////////////////////////////////
+/// <summary> Imprime el recorrido del árbol en Level-Order (Breadth-first search) ITERATIVO </summary>
 void levelOrderTraversalIterativo(NODOPTR actual) {
 	std::queue<NODOPTR> Cola;
 	NODOPTR tmp;
@@ -112,8 +113,8 @@ void levelOrderTraversalIterativo(NODOPTR actual) {
 	}
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-// Elimina el árbol completo, nodo por nodo. Utiliza un recorrido Pos Orden para tal fin.
+///////////////////////////////////////////////////////////////////////
+/// <summary> Elimina el árbol completo, nodo por nodo. Utiliza un recorrido Pos Orden para tal fin. </summary>
 void borrarArbol(NODOPTR actual) {
 	if (actual != nullptr) {
 		borrarArbol(actual->left);
@@ -122,9 +123,10 @@ void borrarArbol(NODOPTR actual) {
 	}
 }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-// Busca el nodo que contiene el elemento dado por parámetro. Retorna un apuntador al nodo encontrado o
-// NULL si no lo encontró.
+///////////////////////////////////////////////////////////////////////
+/// <summary> Busca el nodo que contiene el elemento dado por parámetro. </summary> 
+/// <returns> Retorna un apuntador al nodo encontrado o
+/// NULL si no lo encontró. </returns>
 NODOPTR buscarNodo(NODOPTR actual, std::string dato) {
 	if (actual) {
 		if (actual->elemento == dato)
