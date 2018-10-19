@@ -122,7 +122,7 @@ void Interfaz::resultado(bool result) {
 
 std::string Interfaz::volverJuego(std::string mensaje) {
 	std::string opcion;
-	std::cout <<
+	std::cout << "\n" <<
 		MARGEN << "--------------------------------------------------------------\n" <<
 		MARGEN << "|                                                            |\n" <<
 		MARGEN << "|     1. Volver a " + mensaje + "                                  |\n" <<
