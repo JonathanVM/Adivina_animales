@@ -68,30 +68,16 @@ void MundoAnimales::reiniciar() {
 	actual = anterior = root;
 	terminoJuego = false;
 }
-/*
-bool MundoAnimales::moverCaracteristica(unsigned int posActual, unsigned int posNueva) {
-	int prof = profundidad(root);
-	if (posActual > 0 && posActual <= prof && posNueva > 0 && posNueva <= prof) {
-		int pos = 1;
-		actual = anterior = root;
-		while (pos < posActual) {
-			++pos;
-			actual = actual->left;
-		}
 
-		if (posActual == posNueva)
-			return true;
-		if (posActual != 1) {
+bool MundoAnimales::moverCaracteristicaArriba(NODOPTR inicio, NODOPTR final) {
+	
+}
 
-		} else {
-
-		}
-	reiniciar();
-	}
+bool MundoAnimales::moverCaracteristicaAbajo(NODOPTR incio, NODOPTR final) {
 	
 	return false;
 }
-*/
+
 bool MundoAnimales::finDelJuego() {
 	return terminoJuego;
 }
@@ -117,6 +103,10 @@ std::string MundoAnimales::adivinar(char opc = ' ') {
 	return valor;
 }
 
+
+NODOPTR obtenerCaracteristicaGeneral(unsigned int pos) {
+	return nullptr;
+}
 
 ///<summary> Crea un nuevo nodo, siempre y cuando haya memoria disponible.</summary>
 ///<returns>Retorna un nuevo nodo, o retorna null si no hay memoria </returns>
