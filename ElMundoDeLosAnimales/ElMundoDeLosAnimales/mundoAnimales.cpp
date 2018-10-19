@@ -126,7 +126,7 @@ std::string MundoAnimales::adivinar(char opc = ' ') {
 }
 
 
-NODOPTR obtenerCaracteristicaGeneral(unsigned int pos) {
+NODOPTR MundoAnimales::obtenerCaracteristicaGeneral(unsigned int pos) {
 	return nullptr;
 }
 
