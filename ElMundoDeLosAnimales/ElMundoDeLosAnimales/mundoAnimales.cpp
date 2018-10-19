@@ -127,6 +127,15 @@ std::string MundoAnimales::adivinar(char opc = ' ') {
 
 
 NODOPTR MundoAnimales::obtenerCaracteristicaGeneral(unsigned int pos) {
+	if (root) {
+		actual = root;
+		int cont = 1;
+		while (cont != pos) {
+			actual = actual->left;
+			cont++;
+		}
+		return actual;
+	}
 	return nullptr;
 }
 
