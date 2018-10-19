@@ -28,8 +28,16 @@ void Control::reiniciar() {
 void Control::terminar() {
 }
 
-void Control::mover(unsigned int, unsigned int) {
-
+void Control::mover(unsigned int actual, unsigned int nueva) {
+	if (actual  == nueva) {
+		throw "No se pueden mover caracteristicas iguales";
+	}
+	else if((actual < 1 && actual > 6) || (nueva < 1 && nueva > 6)){
+		throw "Los niveles de las caracteristicas generales van de 1 a 6";
+	}
+	else{
+		mundoA->moverCaracteristicaAbajo(actual, nueva);
+	}
 }
 
 std::string Control::siguientePalabra(char obtener) {
@@ -39,3 +47,9 @@ std::string Control::siguientePalabra(char obtener) {
 bool Control::finDelJuego() {
 	return mundoA->finDelJuego();
 }
+
+void Control:: imprimirArbol() {
+	mundoA->imprimirArbol();
+}
+
+

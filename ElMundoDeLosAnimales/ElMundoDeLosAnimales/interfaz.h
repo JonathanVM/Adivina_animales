@@ -16,7 +16,9 @@ public:
 	~Interfaz();
 	void menu();
 	void juego();
-	std::string volverJuego();
+	void reordenar();
+	void imprimirTitulo();
+	std::string volverJuego(std::string);
 	bool adivinar();
 	void resultado(bool);
 };
