@@ -54,19 +54,41 @@ void MundoAnimales::valoresPorDefecto() {
 	} else
 		throw "Ya no se pueden agregar mas animales";
 }
-void MundoAnimales::insertarNuevo(std::string caracteristica, std::string animal) {
+
+bool MundoAnimales::insertarNuevo(std::string caracteristica, std::string animal) {
 	NODOPTR carac = crearNodo(caracteristica);
 	NODOPTR anim = crearNodo(animal);
 	if (carac && anim) {
 		carac->left = anterior->right;
 		carac->right = anim;
 		anterior->right = carac;
-	} else
-		throw "Ya no se pueden agregar mas animales";
+		return true;
+	}
+	else
+		return false;
 }
 void MundoAnimales::reiniciar() {
 	actual = anterior = root;
 	terminoJuego = false;
+}
+
+bool MundoAnimales::existePalabra(std::string palabra) {
+	return existePalabra(palabra, root);
+}
+
+bool MundoAnimales::existePalabra(std::string palabra, NODOPTR actual) {
+	if (actual == nullptr)
+		return false;
+
+	if (actual->elemento == palabra)
+		return true;
+	else
+		return existePalabra(palabra, actual->left) || existePalabra(palabra, actual->right);
+}
+
+
+bool MundoAnimales::moverCaracteristica(unsigned int posActual, unsigned int posNueva, int metodo) {
+	
 }
 
 bool MundoAnimales::moverCaracteristicaArriba(NODOPTR inicio, NODOPTR final) {

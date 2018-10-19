@@ -14,8 +14,11 @@ Control::~Control() {
 }
 
 ///<summary>Metodo que agregar una nueva caracteristica al arbol del sistema</summary>
-void Control::agregar(std::string caracteristica, std::string animal) {
-	mundoA->insertarNuevo(caracteristica,animal);
+bool Control::agregar(std::string caracteristica, std::string animal) {
+	if (!mundoA->existePalabra(caracteristica)  && !mundoA->existePalabra(animal)) {
+		return mundoA->insertarNuevo(caracteristica, animal);
+	}
+	return false;
 }
 
 void Control::reiniciar() {

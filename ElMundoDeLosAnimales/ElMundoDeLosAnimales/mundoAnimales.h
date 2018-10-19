@@ -19,16 +19,19 @@ public:
 	void leerArchivo();
 	void guardarArchivo();
 	void valoresPorDefecto();
-	void insertarNuevo(std::string, std::string);//Tal vez recibir nodos creados en el control y ahi verificar si hay mas memoria disponible.
+	bool insertarNuevo(std::string, std::string);//Tal vez recibir nodos creados en el control y ahi verificar si hay mas memoria disponible.
 	void reiniciar();
 	bool moverCaracteristica(unsigned int, unsigned int, int);
 	bool moverCaracteristicaArriba(NODOPTR, NODOPTR);
 	bool moverCaracteristicaAbajo(NODOPTR, NODOPTR);
-	
+	bool existePalabra(std::string,NODOPTR);
+	bool existePalabra(std::string);
 	bool finDelJuego();
 	std::string adivinar(char opcion);
 	NODOPTR crearNodo(std::string);//Verifica si hay memoria o no.
 	NODOPTR obtenerCaracteristicaGeneral(unsigned int);
+
+
 	int const CARACTERISTICAS_GENERALES = 6;
 };
 

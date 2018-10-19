@@ -100,8 +100,10 @@ void Interfaz::resultado(bool result) {
 		std::cout << "\n" << MARGEN << "      Mencione una caracteristica relevante: ";
 		std::cin >> caracteristica;
 		std::cout << "\n\n";
-		control->agregar(caracteristica, nombre);
-		std::cout << MARGEN << "      Agregado correctamente, hasta la proxima\n\n";
+		if (control->agregar(caracteristica, nombre))
+			std::cout << MARGEN << "      Agregado correctamente, hasta la proxima\n\n";
+		else 
+			std::cout << MARGEN << "      No se agrego, por que la caracteristica y/o \n" << MARGEN << "animal ya existe\n\n";
 	}
 }
 
