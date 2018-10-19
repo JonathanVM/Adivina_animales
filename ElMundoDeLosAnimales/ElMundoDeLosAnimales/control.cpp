@@ -32,11 +32,11 @@ void Control::mover(unsigned int actual, unsigned int nueva) {
 	if (actual  == nueva) {
 		throw "No se pueden mover caracteristicas iguales";
 	}
-	else if((actual < 1 || actual > 6) || (nueva < 1 || nueva > 6)){
+	else if((actual < 1 && actual > 6) || (nueva < 1 && nueva > 6)){
 		throw "Los niveles de las caracteristicas generales van de 1 a 6";
 	}
 	else{
-		//mundoA->moverCaracteristica(actual, nueva, )
+		mundoA->moverCaracteristicaAbajo(actual, nueva);
 	}
 }
 

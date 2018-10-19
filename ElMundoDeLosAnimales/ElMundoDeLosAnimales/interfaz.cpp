@@ -41,10 +41,11 @@ void Interfaz::juego() {
 		menu();
 		std::cin >> opcion;
 		if (opcion == "2") {
-			while (opcion == "2") {
+			nuevaOpcion = "1";
+			while (nuevaOpcion == "1") {
 				reordenar();
 				nuevaOpcion = volverJuego("modificar");
-				if (nuevaOpcion != "2") {
+				if (nuevaOpcion != "1") {
 					opcion = nuevaOpcion;
 					break;
 				}
@@ -146,8 +147,33 @@ void Interfaz::reordenar() {
 	system("cls");
 	imprimirTitulo();
 	std::string nivelActual, nivelNuevo;
+	int nivelA, nivelN;
 
-	std::cout << MARGEN << "Digite el nivel a ";
+	std::cout << MARGEN << "      Digite el nivel de la caracteristica general a mover: ";
+	std::cin >> nivelActual;
 
+	while (nivelActual != "1" && nivelActual != "2" && nivelActual != "3" && 
+			nivelActual != "4" && nivelActual != "5" && nivelActual != "6") {
+		std::cout << "\n" << MARGEN << "      Digite un nivel valido: ";
+		std::cin >> nivelActual;
+	}
+	nivelA = std::stoi(nivelActual);
 
+	std::cout << "\n" << MARGEN << "      Digite el nivel de la caracteristica general de destino: ";
+	std::cin >> nivelNuevo;
+
+	while (nivelNuevo != "1" && nivelNuevo != "2" && nivelNuevo != "3" &&
+		nivelNuevo != "4" && nivelNuevo != "5" && nivelNuevo != "6") {
+		std::cout << "\n" << MARGEN << "      Digite un nivel valido: ";
+		std::cin >> nivelNuevo;
+	}
+
+	nivelN = std::stoi(nivelNuevo);
+
+	try {
+		control->mover(nivelA, nivelN);
+		std::cout << MARGEN << "      Se realizo la accion satisfactoriamente";
+	}catch (const char* error) {
+		std::cout << MARGEN << "      Error: " << error << "\n";
+	}
 }
