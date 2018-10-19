@@ -87,17 +87,71 @@ bool MundoAnimales::existePalabra(std::string palabra, NODOPTR actual) {
 }
 
 
-bool MundoAnimales::moverCaracteristica(unsigned int posActual, unsigned int posNueva, int metodo) {
-	
-}
-
-bool MundoAnimales::moverCaracteristicaArriba(NODOPTR inicio, NODOPTR final) {
-	
-}
-
-bool MundoAnimales::moverCaracteristicaAbajo(NODOPTR incio, NODOPTR final) {
-	
+///<summary>
+/// metodo = true => moverCaracteristicaArriba
+/// metodo = false => moverCaracteristicaAbajo
+///</summary>
+bool MundoAnimales::moverCaracteristica(unsigned int posActual, unsigned int posNueva, bool metodo) {
+	/*if (posActual > 1)
+		posActual--;
+	if (posNueva > 1)
+		posNueva--;
+	NODOPTR aux = obtenerCaracteristicaGeneral(posActual);
+	NODOPTR aux2 = obtenerCaracteristicaGeneral(posNueva);
+	if (aux && aux2) {
+		if (metodo)
+			return moverCaracteristicaArriba(aux, aux2);
+		return moverCaracteristicaAbajo(aux, aux2);
+	}
+	return false;*/
 	return false;
+}
+
+bool MundoAnimales::moverCaracteristicaArriba(unsigned int posActual, unsigned int posNueva) {
+	NODOPTR inicio, destino, aux;
+	NODOPTR inicio = obtenerCaracteristicaGeneral(posActual-1);
+	if(posNueva > 1)
+		NODOPTR destino = obtenerCaracteristicaGeneral(posNueva-1);
+	else
+		NODOPTR destino = obtenerCaracteristicaGeneral(posNueva);
+	
+	if (!inicio || !destino)
+		return false;
+
+	aux = inicio->right;
+	inicio->right = aux->right;
+	if (posNueva != 1) {
+		aux->right = destino->right;
+		destino->right = aux;
+	}
+	else {
+		root = aux;
+		aux->right = destino;
+	}
+	return true;
+}
+
+bool MundoAnimales::moverCaracteristicaAbajo(unsigned int posActual, unsigned int posNueva) {
+	NODOPTR inicio, destino, aux;
+	if (posActual > 1) {
+		NODOPTR inicio = obtenerCaracteristicaGeneral(posActual-1);
+	} else
+		NODOPTR inicio = obtenerCaracteristicaGeneral(posActual);
+	NODOPTR destino = obtenerCaracteristicaGeneral(posNueva);
+
+	if (!inicio || !destino)
+		return false;
+	if (posActual != 1) {
+		aux = inicio->right;
+		inicio->right = aux->right;
+	}
+	else {
+		aux = root;
+		root = inicio->left;
+	}
+	aux->right = destino->right;
+	destino->right = aux;
+	return true;
 }
 
 bool MundoAnimales::finDelJuego() {

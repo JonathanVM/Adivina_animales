@@ -21,9 +21,9 @@ public:
 	void valoresPorDefecto();
 	bool insertarNuevo(std::string, std::string);//Tal vez recibir nodos creados en el control y ahi verificar si hay mas memoria disponible.
 	void reiniciar();
-	bool moverCaracteristica(unsigned int, unsigned int, int);
-	bool moverCaracteristicaArriba(NODOPTR, NODOPTR);
-	bool moverCaracteristicaAbajo(NODOPTR, NODOPTR);
+	bool moverCaracteristica(unsigned int posActual, unsigned int posNueva, bool metodo);
+	bool moverCaracteristicaArriba(unsigned int posActual, unsigned int posNueva);
+	bool moverCaracteristicaAbajo(unsigned int posActual, unsigned int posNueva);
 	bool existePalabra(std::string,NODOPTR);
 	bool existePalabra(std::string);
 	bool finDelJuego();
