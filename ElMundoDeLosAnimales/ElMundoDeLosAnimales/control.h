@@ -6,18 +6,19 @@
 #include <iostream>
 #include <string>
 
+
+///<summary>Implementacion de la clase Control</summary>
 class Control {
 private:
 	MundoAnimales *mundoA;
 public:
 	Control();
 	~Control();
-	void jugar(std::string);
 	void agregar(std::string, std::string);
 	void reiniciar();
 	void terminar();
 	void mover(unsigned int, unsigned int);
-	std::string obtenerActual(char);
+	std::string siguientePalabra(char);
 	bool finDelJuego();
 };
 

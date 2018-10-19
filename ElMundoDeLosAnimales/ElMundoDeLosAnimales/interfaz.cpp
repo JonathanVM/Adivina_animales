@@ -62,7 +62,7 @@ bool Interfaz::adivinar() {
 
 	while (!salir || !correcto) {
 		if (correcto) {
-			stringActual = control->obtenerActual(respuesta);
+			stringActual = control->siguientePalabra(respuesta);
 			salir = control->finDelJuego();
 		}
 		std::cout << "\n" << MARGEN << "      Esta pensando en \"" << stringActual << "\" (Si/No)?: ";
