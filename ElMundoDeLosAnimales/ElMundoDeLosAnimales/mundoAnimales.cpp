@@ -11,7 +11,7 @@ MundoAnimales::MundoAnimales() {
 ///<summary></summary>
 ///<returns></returns>
 MundoAnimales::~MundoAnimales() {
-
+	guardarArchivo();
 }
 
 ///<summary></summary>
@@ -23,7 +23,27 @@ void MundoAnimales::leerArchivo() {
 ///<summary></summary>
 ///<returns></returns>
 void MundoAnimales::guardarArchivo() {
+	std::ofstream archivo("arbol.txt");
+	guardarArchivo(archivo, root, 0);
+}
 
+//1 -> izq 2 -> derecha 3-> root
+void MundoAnimales::guardarArchivo(std::ofstream& fs, NODOPTR actual, int esg) {
+	if (actual != nullptr) {
+		guardarArchivo(fs, actual->left, 1);
+		guardarArchivo(fs, actual->right, 2);
+
+		if (esg == 1) {
+			fs << "left:" << actual->elemento << " ";
+		}
+		else if(esg == 2) {
+			fs << "right:" << actual->elemento << " ";
+		}
+		else {
+			fs << "root:" << actual->elemento << " ";
+		}
+	}
+	return;
 }
 
 ///<summary></summary>

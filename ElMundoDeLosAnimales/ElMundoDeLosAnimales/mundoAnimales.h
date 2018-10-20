@@ -4,6 +4,7 @@
 #define MUNDOANIMALES_H
 
 #include <iostream>
+#include <fstream>
 
 
 ///<summary>Implementacion de la clase MundoAnimales (Modelo)</summary>
@@ -18,6 +19,7 @@ public:
 	~MundoAnimales();
 	void leerArchivo();
 	void guardarArchivo();
+	void guardarArchivo(std::ofstream&, NODOPTR, int);
 	void valoresPorDefecto();
 	bool insertarNuevo(std::string, std::string);//Tal vez recibir nodos creados en el control y ahi verificar si hay mas memoria disponible.
 	void reiniciar();
