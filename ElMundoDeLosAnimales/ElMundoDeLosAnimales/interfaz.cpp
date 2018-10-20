@@ -53,8 +53,8 @@ void Interfaz::juego() {
 		}
 		else {
 			while (opcion == "1") {
-				resultado(adivinar());
 				control->reiniciar();
+				resultado(adivinar());
 				nuevaOpcion = volverJuego("jugar    ");
 				if (nuevaOpcion != "1") {
 					opcion = nuevaOpcion;
