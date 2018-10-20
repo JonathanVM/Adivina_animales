@@ -145,7 +145,7 @@ bool MundoAnimales::moverCaracteristicaAbajo(unsigned int posActual, unsigned in
 		inicio->left = aux->left;
 	}
 	else {
-		aux = root;
+		aux = inicio;
 		root = inicio->left;
 	}
 	aux->left = destino->left;
