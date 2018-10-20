@@ -146,6 +146,12 @@ NODOPTR buscarNodo(NODOPTR actual, std::string dato) {
 	return nullptr;
 }
 
+///////////////////////////////////////////////////////////////////
+///////////Imprimir Arbol, grafico////////////////////////////////
+
+
+///<summary></summary>
+///<returns></returns>
 void postOrder(NODOPTR p){
 	int height = alturaArbol(p) * 2;
 	for (int i = 0; i < height; i++) {
@@ -153,6 +159,8 @@ void postOrder(NODOPTR p){
 	}
 }
 
+///<summary></summary>
+///<returns></returns>
 void printRow(const NODOPTR p, const int height, int depth){
 	std::vector<std::string> vec;
 	getLine(p, depth, vec);
@@ -178,6 +186,8 @@ void printRow(const NODOPTR p, const int height, int depth){
 	std::cout << "\n";
 }
 
+///<summary></summary>
+///<returns></returns>
 void getLine(const NODOPTR root, int depth, std::vector<std::string>& vals){
 	if (depth <= 0 && root != nullptr) {
 		vals.push_back(root->elemento);
@@ -193,6 +203,8 @@ void getLine(const NODOPTR root, int depth, std::vector<std::string>& vals){
 		vals.push_back(" ");
 }
 
+///<summary></summary>
+///<returns></returns>
 int alturaArbol(NODOPTR p) {
 	if (p == nullptr)
 		return 0;

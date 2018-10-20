@@ -1,12 +1,19 @@
 #include "interfaz.h"
 
+///<summary></summary>
+///<returns></returns>
 Interfaz::Interfaz() {
 	control = new Control();
 }
+
+///<summary></summary>
+///<returns></returns>
 Interfaz::~Interfaz() {
 	delete control;
 }
 
+///<summary></summary>
+///<returns></returns>
 void Interfaz::menu() {
 	std::cout << "\n\n" <<
 		MARGEN << "--------------------------------------------------------------\n" <<
@@ -23,6 +30,8 @@ void Interfaz::menu() {
 		MARGEN << "      Digite una opcion: ";
 }
 
+///<summary></summary>
+///<returns></returns>
 void Interfaz::imprimirTitulo() {
 	std::cout << "\n\n" <<
 		MARGEN << "--------------------------------------------------------------\n" <<
@@ -32,7 +41,8 @@ void Interfaz::imprimirTitulo() {
 		MARGEN << "--------------------------------------------------------------\n\n";
 }
 
-
+///<summary></summary>
+///<returns></returns>
 void Interfaz::juego() {
 	std::string opcion = "", nuevaOpcion = "";
 
@@ -65,6 +75,8 @@ void Interfaz::juego() {
 	} while (opcion != "3");
 }
 
+///<summary></summary>
+///<returns></returns>
 bool Interfaz::adivinar() {
 	char respuesta = ' ';
 	std::string pregunta, stringActual;
@@ -94,6 +106,8 @@ bool Interfaz::adivinar() {
 	return (respuesta == 'S');
 }
 
+///<summary></summary>
+///<returns></returns>
 void Interfaz::resultado(bool result) {
 	if (result) {
 		std::cout << "\n\n" <<
@@ -120,6 +134,8 @@ void Interfaz::resultado(bool result) {
 	}
 }
 
+///<summary></summary>
+///<returns></returns>
 std::string Interfaz::volverJuego(std::string mensaje) {
 	std::string opcion;
 	std::cout << "\n" <<
@@ -142,6 +158,8 @@ std::string Interfaz::volverJuego(std::string mensaje) {
 	return opcion;
 }
 
+///<summary></summary>
+///<returns></returns>
 void Interfaz::reordenar() {
 
 	system("cls");
@@ -180,6 +198,8 @@ void Interfaz::reordenar() {
 	}
 }
 
+///<summary></summary>
+///<returns></returns>
 bool Interfaz::respuestaAceptada(std::string cadena, std::string ver) {
 	if (ver == "Si") {
 		if (cadena == "si" || cadena == "Si" || cadena == "sI" || cadena == "SI") {

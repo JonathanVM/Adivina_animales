@@ -1,19 +1,33 @@
 #include "mundoAnimales.h"
 
+///<summary></summary>
+///<returns></returns>
 MundoAnimales::MundoAnimales() {
 	root = actual = anterior = nullptr;
 	terminoJuego = false;
 	valoresPorDefecto();
 }
+
+///<summary></summary>
+///<returns></returns>
 MundoAnimales::~MundoAnimales() {
 
 }
+
+///<summary></summary>
+///<returns></returns>
 void MundoAnimales::leerArchivo() {
 
 }
+
+///<summary></summary>
+///<returns></returns>
 void MundoAnimales::guardarArchivo() {
 
 }
+
+///<summary></summary>
+///<returns></returns>
 void MundoAnimales::valoresPorDefecto() {
 	NODOPTR ave = crearNodo("ave");
 	NODOPTR aguila = crearNodo("Aguila");
@@ -55,6 +69,8 @@ void MundoAnimales::valoresPorDefecto() {
 		throw "Ya no se pueden agregar mas animales";
 }
 
+///<summary></summary>
+///<returns></returns>
 bool MundoAnimales::insertarNuevo(std::string caracteristica, std::string animal) {
 	NODOPTR carac = crearNodo(caracteristica);
 	NODOPTR anim = crearNodo(animal);
@@ -67,15 +83,22 @@ bool MundoAnimales::insertarNuevo(std::string caracteristica, std::string animal
 	else
 		return false;
 }
+
+///<summary></summary>
+///<returns></returns>
 void MundoAnimales::reiniciar() {
 	actual = anterior = root;
 	terminoJuego = false;
 }
 
+///<summary></summary>
+///<returns></returns>
 bool MundoAnimales::existePalabra(std::string palabra) {
 	return existePalabra(palabra, root);
 }
 
+///<summary></summary>
+///<returns></returns>
 bool MundoAnimales::existePalabra(std::string palabra, NODOPTR actual) {
 	if (actual == nullptr)
 		return false;
@@ -106,6 +129,9 @@ bool MundoAnimales::moverCaracteristica(unsigned int posActual, unsigned int pos
 	return false;
 }
 
+
+///<summary></summary>
+///<returns></returns>
 bool MundoAnimales::moverCaracteristicaArriba(unsigned int posActual, unsigned int posNueva) {
 	NODOPTR inicio, destino, aux;
 	inicio = obtenerCaracteristicaGeneral(posActual-1);
@@ -130,6 +156,8 @@ bool MundoAnimales::moverCaracteristicaArriba(unsigned int posActual, unsigned i
 	return true;
 }
 
+///<summary></summary>
+///<returns></returns>
 bool MundoAnimales::moverCaracteristicaAbajo(unsigned int posActual, unsigned int posNueva) {
 	NODOPTR inicio, destino, aux;
 	if (posActual > 1) {
@@ -153,9 +181,14 @@ bool MundoAnimales::moverCaracteristicaAbajo(unsigned int posActual, unsigned in
 	return true;
 }
 
+///<summary></summary>
+///<returns></returns>
 bool MundoAnimales::finDelJuego() {
 	return terminoJuego;
 }
+
+///<summary></summary>
+///<returns></returns>
 std::string MundoAnimales::adivinar(char opc = ' ') {
 	std::string valor = "";
 	if (actual) {
@@ -178,7 +211,8 @@ std::string MundoAnimales::adivinar(char opc = ' ') {
 	return valor;
 }
 
-
+///<summary></summary>
+///<returns></returns>
 NODOPTR MundoAnimales::obtenerCaracteristicaGeneral(unsigned int pos) {
 	if (root) {
 		actual = root;
@@ -206,6 +240,8 @@ NODOPTR MundoAnimales::crearNodo(std::string nuevo) {
 	}
 }
 
+///<summary></summary>
+///<returns></returns>
 void MundoAnimales::imprimirArbol() {
 	postOrder(root);
 }

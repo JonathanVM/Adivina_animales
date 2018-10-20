@@ -14,6 +14,7 @@ Control::~Control() {
 }
 
 ///<summary>Metodo que agregar una nueva caracteristica al arbol del sistema</summary>
+
 bool Control::agregar(std::string caracteristica, std::string animal) {
 	if (!mundoA->existePalabra(caracteristica)  && !mundoA->existePalabra(animal)) {
 		return mundoA->insertarNuevo(caracteristica, animal);
@@ -21,13 +22,21 @@ bool Control::agregar(std::string caracteristica, std::string animal) {
 	return false;
 }
 
+///<summary></summary>
+///<returns></returns>
 void Control::reiniciar() {
 	mundoA->reiniciar();
 }
 
+
+///<summary></summary>
+///<returns></returns>
 void Control::terminar() {
 }
 
+
+///<summary></summary>
+///<returns></returns>
 void Control::mover(unsigned int actual, unsigned int nueva) {
 	if (actual  == nueva) {
 		throw "No se pueden mover caracteristicas iguales";
@@ -40,14 +49,20 @@ void Control::mover(unsigned int actual, unsigned int nueva) {
 	}
 }
 
+///<summary></summary>
+///<returns></returns>
 std::string Control::siguientePalabra(char obtener) {
 	return mundoA->adivinar(obtener);
 }
 
+///<summary></summary>
+///<returns></returns>
 bool Control::finDelJuego() {
 	return mundoA->finDelJuego();
 }
 
+///<summary></summary>
+///<returns></returns>
 void Control:: imprimirArbol() {
 	mundoA->imprimirArbol();
 }
