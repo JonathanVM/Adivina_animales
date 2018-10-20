@@ -22,8 +22,8 @@ public:
 	bool insertarNuevo(std::string, std::string);//Tal vez recibir nodos creados en el control y ahi verificar si hay mas memoria disponible.
 	void reiniciar();
 	bool moverCaracteristica(unsigned int posActual, unsigned int posNueva, bool metodo);
-	bool moverCaracteristicaArriba(unsigned int posActual, unsigned int posNueva);
-	bool moverCaracteristicaAbajo(unsigned int posActual, unsigned int posNueva);
+	bool moverCaracteristicaArriba(NODOPTR, NODOPTR, unsigned int);
+	bool moverCaracteristicaAbajo(NODOPTR, NODOPTR, unsigned int);
 	bool existePalabra(std::string,NODOPTR);
 	bool existePalabra(std::string);
 	bool finDelJuego();
