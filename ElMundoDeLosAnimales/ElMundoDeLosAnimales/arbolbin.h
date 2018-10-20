@@ -5,6 +5,8 @@
 #include <iostream>
 #include <queue>
 #include <string>
+#include <vector>
+#include <iomanip>
 
 struct nodo {
 	std::string elemento;
@@ -27,6 +29,10 @@ static void levelOrder(NODOPTR, int);
 static void levelOrderTraversalIterativo(NODOPTR);
 static void borrarArbol(NODOPTR);
 static NODOPTR buscarNodo(NODOPTR, std::string);
+static void getLine(const NODOPTR, int, std::vector<std::string>&);
+static void postOrder(NODOPTR);
+static void printRow(const NODOPTR, const int, int);
+static int alturaArbol(NODOPTR);
 //#############################################################
 
 ///////////////////////////////////////////////////////////////////////
@@ -138,6 +144,66 @@ NODOPTR buscarNodo(NODOPTR actual, std::string dato) {
 			return aux;
 	}
 	return nullptr;
+}
+
+void postOrder(NODOPTR p){
+	int height = alturaArbol(p) * 2;
+	for (int i = 0; i < height; i++) {
+		printRow(p, height, i);
+	}
+}
+
+void printRow(const NODOPTR p, const int height, int depth){
+	std::vector<std::string> vec;
+	getLine(p, depth, vec);
+	std::cout << std::setw((height - depth) * 3); // scale setw with depth
+	bool toggle = true; // start with left
+	if (vec.size() > 1) {
+		for (std::string v : vec) {
+			if (v != " ") {
+				if (toggle)
+					std::cout << "      /" << "  ";
+				else
+					std::cout << "\\" << " ";
+			}
+			toggle = !toggle;
+		}
+		std::cout << "\n";
+		std::cout << std::setw((height - depth) * 3);
+	}
+	for (std::string v : vec) {
+		if (v != " ")
+			std::cout << v << " ";
+	}
+	std::cout << "\n";
+}
+
+void getLine(const NODOPTR root, int depth, std::vector<std::string>& vals){
+	if (depth <= 0 && root != nullptr) {
+		vals.push_back(root->elemento);
+		return;
+	}
+	if (root->left != nullptr)
+		getLine(root->left, depth - 1, vals);
+	else if (depth - 1 <= 0)
+		vals.push_back(" ");
+	if (root->right != nullptr)
+		getLine(root->right, depth - 1, vals);
+	else if (depth - 1 <= 0)
+		vals.push_back(" ");
+}
+
+int alturaArbol(NODOPTR p) {
+	if (p == nullptr)
+		return 0;
+	else{
+		int lDepth = alturaArbol(p->left);
+		int rDepth = alturaArbol(p->right);
+		if (lDepth > rDepth)
+			return(lDepth + 1);
+		else 
+			return(rDepth + 1);
+	}
 }
 
 #endif

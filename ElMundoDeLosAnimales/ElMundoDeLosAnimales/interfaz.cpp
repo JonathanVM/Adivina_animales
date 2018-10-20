@@ -80,11 +80,11 @@ bool Interfaz::adivinar() {
 		}
 		std::cout << "\n" << MARGEN << "      Esta pensando en \"" << stringActual << "\" (Si/No)?: ";
 		std::cin >> pregunta;
-		if (pregunta == "Si") {
+		if (respuestaAceptada(pregunta, "Si")) {
 			respuesta = 'S';
 			correcto = true;
 		}
-		else if (pregunta == "No") {
+		else if (respuestaAceptada(pregunta, "No")) {
 			respuesta = 'N';
 			correcto = true;
 		}
@@ -149,6 +149,8 @@ void Interfaz::reordenar() {
 	std::string nivelActual, nivelNuevo;
 	int nivelA, nivelN;
 
+	control->imprimirArbol();
+
 	std::cout << MARGEN << "      Digite el nivel de la caracteristica general a mover: ";
 	std::cin >> nivelActual;
 
@@ -176,4 +178,20 @@ void Interfaz::reordenar() {
 	}catch (const char* error) {
 		std::cout << MARGEN << "      Error: " << error << "\n";
 	}
+}
+
+bool Interfaz::respuestaAceptada(std::string cadena, std::string ver) {
+	if (ver == "Si") {
+		if (cadena == "si" || cadena == "Si" || cadena == "sI" || cadena == "SI") {
+			return true;
+		}
+		return false;
+	}
+	else if(ver == "No"){
+		if (cadena == "No" || cadena == "NO" || cadena == "nO" || cadena == "no") {
+			return true;
+		}
+		return false;
+	}
+	return false;
 }

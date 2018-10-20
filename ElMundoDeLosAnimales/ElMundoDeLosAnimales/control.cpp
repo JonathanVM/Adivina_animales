@@ -36,7 +36,7 @@ void Control::mover(unsigned int actual, unsigned int nueva) {
 		throw "Los niveles de las caracteristicas generales van de 1 a 6";
 	}
 	else{
-		mundoA->moverCaracteristicaAbajo(actual, nueva);
+		mundoA->moverCaracteristicaArriba(actual, nueva);
 	}
 }
 

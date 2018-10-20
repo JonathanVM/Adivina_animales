@@ -21,6 +21,7 @@ public:
 	std::string volverJuego(std::string);
 	bool adivinar();
 	void resultado(bool);
+	bool respuestaAceptada(std::string, std::string);
 };
 
 #endif // !INTERFAZ_H

@@ -207,5 +207,5 @@ NODOPTR MundoAnimales::crearNodo(std::string nuevo) {
 }
 
 void MundoAnimales::imprimirArbol() {
-	levelOrderTraversalIterativo(root);
+	postOrder(root);
 }
