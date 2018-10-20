@@ -134,35 +134,27 @@ bool MundoAnimales::existePalabra(std::string palabra, NODOPTR actual) {
 /// metodo = false => moverCaracteristicaAbajo
 ///</summary>
 bool MundoAnimales::moverCaracteristica(unsigned int posActual, unsigned int posNueva, bool metodo) {
-	/*if (posActual > 1)
-		posActual--;
-	if (posNueva > 1)
-		posNueva--;
-	NODOPTR aux = obtenerCaracteristicaGeneral(posActual);
-	NODOPTR aux2 = obtenerCaracteristicaGeneral(posNueva);
-	if (aux && aux2) {
-		if (metodo)
-			return moverCaracteristicaArriba(aux, aux2);
-		return moverCaracteristicaAbajo(aux, aux2);
-	}
-	return false;*/
-	return false;
+	NODOPTR inicio, destino, aux;
+	if (posActual > 1 || metodo)
+		inicio = obtenerCaracteristicaGeneral(posActual - 1);
+	else
+		inicio = obtenerCaracteristicaGeneral(posActual);
+	if (posNueva == 1 || !metodo)
+		destino = obtenerCaracteristicaGeneral(posNueva);	
+	else
+		destino = obtenerCaracteristicaGeneral(posNueva - 1);
+	if (metodo)
+		return moverCaracteristicaArriba(inicio, destino, posNueva);
+	return moverCaracteristicaAbajo(inicio, destino, posActual);
 }
 
 
 ///<summary></summary>
 ///<returns></returns>
-bool MundoAnimales::moverCaracteristicaArriba(unsigned int posActual, unsigned int posNueva) {
-	NODOPTR inicio, destino, aux;
-	inicio = obtenerCaracteristicaGeneral(posActual-1);
-	if(posNueva > 1)
-		destino = obtenerCaracteristicaGeneral(posNueva-1);
-	else
-		destino = obtenerCaracteristicaGeneral(posNueva);
-	
+bool MundoAnimales::moverCaracteristicaArriba(NODOPTR inicio, NODOPTR destino, unsigned int posNueva) {
+	NODOPTR aux;
 	if (!inicio || !destino)
 		return false;
-
 	aux = inicio->left;
 	inicio->left = aux->left;
 	if (posNueva != 1) {
@@ -178,14 +170,8 @@ bool MundoAnimales::moverCaracteristicaArriba(unsigned int posActual, unsigned i
 
 ///<summary></summary>
 ///<returns></returns>
-bool MundoAnimales::moverCaracteristicaAbajo(unsigned int posActual, unsigned int posNueva) {
-	NODOPTR inicio, destino, aux;
-	if (posActual > 1) {
-		inicio = obtenerCaracteristicaGeneral(posActual-1);
-	} else
-		inicio = obtenerCaracteristicaGeneral(posActual);
-	destino = obtenerCaracteristicaGeneral(posNueva);
-
+bool MundoAnimales::moverCaracteristicaAbajo(NODOPTR inicio, NODOPTR destino, unsigned int posActual) {
+	NODOPTR aux;
 	if (!inicio || !destino)
 		return false;
 	if (posActual != 1) {
