@@ -117,15 +117,15 @@ bool MundoAnimales::moverCaracteristicaArriba(unsigned int posActual, unsigned i
 	if (!inicio || !destino)
 		return false;
 
-	aux = inicio->right;
-	inicio->right = aux->right;
+	aux = inicio->left;
+	inicio->left = aux->left;
 	if (posNueva != 1) {
-		aux->right = destino->right;
-		destino->right = aux;
+		aux->left = destino->left;
+		destino->left = aux;
 	}
 	else {
 		root = aux;
-		aux->right = destino;
+		aux->left = destino;
 	}
 	return true;
 }
@@ -145,7 +145,7 @@ bool MundoAnimales::moverCaracteristicaAbajo(unsigned int posActual, unsigned in
 		inicio->left = aux->left;
 	}
 	else {
-		aux = root;
+		aux = inicio;
 		root = inicio->left;
 	}
 	aux->left = destino->left;
