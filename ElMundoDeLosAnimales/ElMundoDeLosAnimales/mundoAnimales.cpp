@@ -180,7 +180,7 @@ bool MundoAnimales::moverCaracteristicaAbajo(NODOPTR inicio, NODOPTR destino, un
 	}
 	else {
 		aux = inicio;
-		root = inicio->left;
+		root = aux->left;
 	}
 	aux->left = destino->left;
 	destino->left = aux;
