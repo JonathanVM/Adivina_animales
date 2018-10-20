@@ -44,8 +44,11 @@ void Control::mover(unsigned int actual, unsigned int nueva) {
 	else if((actual < 1 && actual > 6) || (nueva < 1 && nueva > 6)){
 		throw "Los niveles de las caracteristicas generales van de 1 a 6";
 	}
-	else{
-		mundoA->moverCaracteristicaArriba(actual, nueva);
+	else if (actual > nueva){
+		mundoA->moverCaracteristica(actual, nueva, true);
+	}
+	else {
+		mundoA->moverCaracteristica(actual, nueva, false);
 	}
 }
 

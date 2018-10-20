@@ -134,7 +134,7 @@ bool MundoAnimales::existePalabra(std::string palabra, NODOPTR actual) {
 /// metodo = false => moverCaracteristicaAbajo
 ///</summary>
 bool MundoAnimales::moverCaracteristica(unsigned int posActual, unsigned int posNueva, bool metodo) {
-	NODOPTR inicio, destino, aux;
+	NODOPTR inicio, destino;
 	if (posActual > 1 || metodo)
 		inicio = obtenerCaracteristicaGeneral(posActual - 1);
 	else

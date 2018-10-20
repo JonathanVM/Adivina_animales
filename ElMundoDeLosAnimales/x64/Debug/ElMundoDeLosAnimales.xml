@@ -24,11 +24,11 @@
             <summary />
             <returns />
         </member>
-        <member name="M:MundoAnimales.moverCaracteristicaAbajo(System.UInt32,System.UInt32)">
+        <member name="M:MundoAnimales.moverCaracteristicaAbajo(nodo*,nodo*,System.UInt32)">
             <summary />
             <returns />
         </member>
-        <member name="M:MundoAnimales.moverCaracteristicaArriba(System.UInt32,System.UInt32)">
+        <member name="M:MundoAnimales.moverCaracteristicaArriba(nodo*,nodo*,System.UInt32)">
             <summary />
             <returns />
         </member>
