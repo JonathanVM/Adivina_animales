@@ -35,7 +35,51 @@ void MundoAnimales::leerArchivo() {
 	archivo.close();
 }
 
-void MundoAnimales::armarArbolArhivo(NODOPTR actual, std::ifstream& archivo, int seguir) {
+void MundoAnimales::armarArbolArhivo(NODOPTR actual = nullptr, std::ifstream& archivo, std::string& derecha, bool seguir = true) {
+	std::string cadena;
+	
+	getline(archivo, cadena);
+	NODOPTR aux;
+	/*if (!aux && !archivo.eof()) {
+		borrarArbol(root);
+		valoresPorDefecto();
+		return;
+	}*/
+	if (!actual) {
+		getline(archivo, cadena);
+		actual = root = crearNodo(cadena);
+		if (!root) {
+			borrarArbol(root);
+			valoresPorDefecto();
+		}
+		getline(archivo, cadena);
+	}
+	if (cadena == "left") {
+		getline(archivo, cadena);
+		aux = crearNodo(cadena);
+		actual->left = aux;
+		armarArbolArhivo(actual->left, archivo, derecha);
+		if (derecha == "") {
+			borrarArbol(root);
+			valoresPorDefecto();
+			return;
+		}
+		aux = crearNodo(derecha);
+		actual->right = aux;
+		armarArbolArhivo(actual->right, archivo, derecha);
+	}
+	if (cadena == "right" || derecha != "") {
+		if (derecha == "")
+			getline(archivo, cadena);
+		else
+			cadena = derecha;
+		if (!actual->left) {
+			derecha = cadena;
+			return;
+		}
+
+
+	}
 
 }
 
