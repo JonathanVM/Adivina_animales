@@ -6,7 +6,7 @@ MundoAnimales::MundoAnimales() {
 	root = actual = anterior = nullptr;
 	terminoJuego = false;
 	valoresPorDefecto();
-	
+	//leerArchivo();
 }
 
 ///<summary></summary>
@@ -15,27 +15,17 @@ MundoAnimales::~MundoAnimales() {
 	guardarArchivo();
 }
 
-
-
 ///<summary></summary>
 ///<returns></returns>
 void MundoAnimales::leerArchivo() {
-	std::string cadena;
-	int correcto = 0;
 	std::ifstream archivo("arbol.txt");
-	getline(archivo, cadena);
-	if (cadena == "root") {
-		getline(archivo, cadena);
-		NODOPTR root = crearNodo(cadena);
-		armarArbolArhivo(root, archivo, 0);
-	}
-	else {
-		valoresPorDefecto();
-	}
+	std::string derecha = "";
+	armarArbolArhivo(nullptr, archivo, derecha, true);
 	archivo.close();
 }
 
-void MundoAnimales::armarArbolArhivo(NODOPTR actual = nullptr, std::ifstream& archivo, std::string& derecha, bool& seguir) {
+void MundoAnimales::armarArbolArhivo(NODOPTR actual, 
+	std::ifstream& archivo, std::string& derecha, bool seguir) {
 	std::string cadena;
 	
 	getline(archivo, cadena);
@@ -45,12 +35,7 @@ void MundoAnimales::armarArbolArhivo(NODOPTR actual = nullptr, std::ifstream& ar
 		return;
 	}
 	NODOPTR aux;
-	/*if (!aux && !archivo.eof()) {
-		borrarArbol(root);
-		valoresPorDefecto();
-		return;
-	}*/
-	if (!actual) {
+	if (!actual && cadena == "root") {
 		getline(archivo, cadena);
 		actual = root = crearNodo(cadena);
 		if (!root) {
@@ -71,58 +56,15 @@ void MundoAnimales::armarArbolArhivo(NODOPTR actual = nullptr, std::ifstream& ar
 		}
 		aux = crearNodo(derecha);
 		actual->right = aux;
-		armarArbolArhivo(actual->right, archivo, derecha, seguir);
+		derecha = "";
+		armarArbolArhivo(actual->right, archivo, derecha , seguir);
 	}
-	if (cadena == "right" || derecha != "") {
-		if (derecha == "")
-			getline(archivo, cadena);
-		else
-			cadena = derecha;
-		if (!actual->left) {
-			derecha = cadena;
-			return;
-		}
-		aux = crearNodo(cadena);
-		actual->right = aux;
-
-	}
-
-}
-
-/*
-void MundoAnimales::armarArbolArhivo(NODOPTR izquierda, NODOPTR derecha, 
-										std::ifstream& archivo, int seguir) {
-	std::string cadena;
-	getline(archivo, cadena);
-	if (cadena == "root") {
+	if (cadena == "right") {
 		getline(archivo, cadena);
-		NODOPTR root = crearNodo(cadena);
-		root->left = izquierda;
-		armarArbolArhivo(izquierda, derecha, archivo, 2);
-		return;
-	}
-	else if(cadena == "left") {
-		getline(archivo, cadena);
-		NODOPTR nodoL = crearNodo(cadena);
-		if (seguir == 0) {
-			nodoL->left = izquierda;
-		}
-		armarArbolArhivo(nodoL, derecha, archivo, )
-
-	}
-	else if (cadena == "right") {
-		getline(archivo, cadena);
-		NODOPTR nodoR = crearNodo(cadena);
-		if (derecha) {
-
-		}
-	}
-	else {
-		valoresPorDefecto();
+		derecha = cadena;
 		return;
 	}
 }
-*/
 
 ///<summary></summary>
 ///<returns></returns>
@@ -131,11 +73,8 @@ void MundoAnimales::guardarArchivo() {
 	guardarArchivo(archivo, root, 0);
 }
 
-//1 -> izq 2 -> derecha 3-> root
 void MundoAnimales::guardarArchivo(std::ofstream& fs, NODOPTR actual, int esg) {
 	if (actual != nullptr) {
-		guardarArchivo(fs, actual->left, 1);
-		guardarArchivo(fs, actual->right, 2);
 		if (esg == 1) {
 			fs << "left\n" << actual->elemento << "\n";
 		}
@@ -145,6 +84,8 @@ void MundoAnimales::guardarArchivo(std::ofstream& fs, NODOPTR actual, int esg) {
 		else {
 			fs << "root\n" << actual->elemento << "\n";
 		}
+		guardarArchivo(fs, actual->left, 1);
+		guardarArchivo(fs, actual->right, 2);
 	}
 	return;
 }
@@ -217,7 +158,6 @@ void MundoAnimales::reiniciar() {
 ///<summary></summary>
 ///<returns></returns>
 bool MundoAnimales::existePalabra(std::string palabra) {
-	leerArchivo();
 	return existePalabra(palabra, root);
 }
 
