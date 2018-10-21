@@ -21,7 +21,7 @@ public:
 	MundoAnimales();
 	~MundoAnimales();
 	void leerArchivo();
-	void armarArbolArhivo(NODOPTR, std::ifstream&, std::string&, bool);
+	void armarArbolArhivo(NODOPTR, std::ifstream&, std::string&, bool&);
 	void guardarArchivo();
 	void guardarArchivo(std::ofstream&, NODOPTR, int);
 	void valoresPorDefecto();
