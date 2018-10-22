@@ -136,7 +136,7 @@ void MundoAnimales::valoresPorDefecto() {
 		throw "Ya no se pueden agregar mas animales";
 }
 
-///<summary>Si fue posible crear los nodos, </summary>
+///<summary>Error, si anterior no existe, eliminar memoria, igual si solo uno se creo, liberar la memoria del otro</summary>
 ///<returns></returns>
 bool MundoAnimales::insertarNuevo(std::string caracteristica, std::string animal) {
 	NODOPTR carac = crearNodo(caracteristica);
