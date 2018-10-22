@@ -1,6 +1,6 @@
 #include "mundoAnimales.h"
 
-///<summary></summary>
+///<summary>Constructor de la clase mundo animales, inicializa los atributos</summary>
 ///<returns></returns>
 MundoAnimales::MundoAnimales() {
 	root = actual = anterior = nullptr;
@@ -9,14 +9,12 @@ MundoAnimales::MundoAnimales() {
 	//leerArchivo();
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Destructor de la clase MundoAnimales</summary>
 MundoAnimales::~MundoAnimales() {
 	guardarArchivo();
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Lee del archivo solo si existe y si no carga los valores por defecto</summary>
 void MundoAnimales::leerArchivo() {
 	std::ifstream archivo("arbol.txt");
 	std::string derecha = "";
@@ -24,6 +22,10 @@ void MundoAnimales::leerArchivo() {
 	archivo.close();
 }
 
+///<summary>Arma el arbol con los datos provenientes del archivo.
+///Se asume que un nodo no hoja siempre tiene dos hijos, en caso de que los datos del archivo no cumplieran con esto, 
+///se cargaran los valores por defecto
+///</summary>
 void MundoAnimales::armarArbolArhivo(NODOPTR actual, 
 	std::ifstream& archivo, std::string& derecha, bool seguir) {
 	std::string cadena;
@@ -66,13 +68,13 @@ void MundoAnimales::armarArbolArhivo(NODOPTR actual,
 	}
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Si no existe el archivo, lo crea y sino lo sobrescribe</summary>
 void MundoAnimales::guardarArchivo() {
 	std::ofstream archivo("arbol.txt");
 	guardarArchivo(archivo, root, 0);
 }
 
+///<summary>Va guardando en el archivo dado por parametro linea por linea, identificando izquierda, derecha y la raiz</summary>
 void MundoAnimales::guardarArchivo(std::ofstream& fs, NODOPTR actual, int esg) {
 	if (actual != nullptr) {
 		if (esg == 1) {
@@ -90,8 +92,9 @@ void MundoAnimales::guardarArchivo(std::ofstream& fs, NODOPTR actual, int esg) {
 	return;
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>En caso de no existir el archivo o no cumplir con un formato valido, se procede a utilizar este metodo.
+///Este se encarga de cargar valores por defecto para iniciar a jugar.
+///</summary>
 void MundoAnimales::valoresPorDefecto() {
 	NODOPTR ave = crearNodo("ave");
 	NODOPTR aguila = crearNodo("Aguila");
@@ -133,12 +136,12 @@ void MundoAnimales::valoresPorDefecto() {
 		throw "Ya no se pueden agregar mas animales";
 }
 
-///<summary></summary>
+///<summary>Si fue posible crear los nodos, </summary>
 ///<returns></returns>
 bool MundoAnimales::insertarNuevo(std::string caracteristica, std::string animal) {
 	NODOPTR carac = crearNodo(caracteristica);
 	NODOPTR anim = crearNodo(animal);
-	if (carac && anim) {
+	if (carac && anim && anterior) {
 		carac->left = anterior->right;
 		carac->right = anim;
 		anterior->right = carac;
