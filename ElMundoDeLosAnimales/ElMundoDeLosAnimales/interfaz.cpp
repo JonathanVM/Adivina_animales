@@ -169,7 +169,7 @@ void Interfaz::reordenar() {
 
 	control->imprimirArbol();
 
-	std::cout << MARGEN << "      Digite el nivel de la caracteristica general a mover: ";
+	std::cout << "\n" << MARGEN << "      Digite el nivel de la caracteristica general a mover: ";
 	std::cin >> nivelActual;
 
 	while (nivelActual != "1" && nivelActual != "2" && nivelActual != "3" && 

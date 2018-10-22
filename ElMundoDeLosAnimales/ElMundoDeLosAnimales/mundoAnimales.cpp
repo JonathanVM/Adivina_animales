@@ -293,5 +293,5 @@ NODOPTR MundoAnimales::crearNodo(std::string nuevo) {
 ///<summary></summary>
 ///<returns></returns>
 void MundoAnimales::imprimirArbol() {
-	postOrder(root);
+	imprimeArbol(root);
 }
