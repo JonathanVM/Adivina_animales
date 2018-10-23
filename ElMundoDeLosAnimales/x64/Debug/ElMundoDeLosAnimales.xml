@@ -51,27 +51,34 @@ metodo = false =&gt; moverCaracteristicaAbajo
             <returns />
         </member>
         <member name="M:MundoAnimales.insertarNuevo(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;)">
-            <summary />
+            <summary>Si fue posible crear los nodos, </summary>
             <returns />
         </member>
         <member name="M:MundoAnimales.valoresPorDefecto">
-            <summary />
-            <returns />
+            <summary>En caso de no existir el archivo o no cumplir con un formato valido, se procede a utilizar este metodo.
+Este se encarga de cargar valores por defecto para iniciar a jugar.
+</summary>
+        </member>
+        <member name="M:MundoAnimales.guardarArchivo(std.basic_ofstream&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,nodo*,System.Int32)">
+            <summary>Va guardando en el archivo dado por parametro linea por linea, identificando izquierda, derecha y la raiz</summary>
         </member>
         <member name="M:MundoAnimales.guardarArchivo">
-            <summary />
-            <returns />
+            <summary>Si no existe el archivo, lo crea y sino lo sobrescribe</summary>
+        </member>
+        <member name="M:MundoAnimales.armarArbolArhivo(nodo*,std.basic_ifstream&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Boolean)">
+            <summary>Arma el arbol con los datos provenientes del archivo.
+Se asume que un nodo no hoja siempre tiene dos hijos, en caso de que los datos del archivo no cumplieran con esto, 
+se cargaran los valores por defecto
+</summary>
         </member>
         <member name="M:MundoAnimales.leerArchivo">
-            <summary />
-            <returns />
+            <summary>Lee del archivo solo si existe y si no carga los valores por defecto</summary>
         </member>
         <member name="M:MundoAnimales.Dispose">
-            <summary />
-            <returns />
+            <summary>Destructor de la clase MundoAnimales</summary>
         </member>
         <member name="M:MundoAnimales.#ctor">
-            <summary />
+            <summary>Constructor de la clase mundo animales, inicializa los atributos</summary>
             <returns />
         </member>
         <member name="M:Control.imprimirArbol">
@@ -177,28 +184,6 @@ NULL si no lo encontró. </returns>
         </member>
         <member name="M:borrarArbol(nodo*)">
             <summary> Elimina el árbol completo, nodo por nodo. Utiliza un recorrido Pos Orden para tal fin. </summary>
-        </member>
-        <member name="M:levelOrderTraversalIterativo(nodo*)">
-            <summary> Imprime el recorrido del árbol en Level-Order (Breadth-first search) ITERATIVO </summary>
-        </member>
-        <member name="M:levelOrder(nodo*,System.Int32)">
-            <summary> Auxiliar para el recorrido del árbol en Level-Order </summary>
-        </member>
-        <member name="M:levelOrderTraversalRecursivo(nodo*)">
-            <summary> WRAPPER - Imprime el recorrido del árbol en Level-Order (Breadth-first search) RECURSIVO </summary>
-        </member>
-        <member name="M:recorridoPosOrden(nodo*)">
-            <summary> Imprime el recorrido del árbol Pos Orden </summary>
-        </member>
-        <member name="M:recorridoEnOrden(nodo*)">
-            <summary> Imprime el recorrido del árbol En Orden </summary>
-        </member>
-        <member name="M:recorridoPreOrden(nodo*)">
-            <summary> Imprime el recorrido del árbol Pre Orden </summary>
-        </member>
-        <member name="M:profundidad(nodo*)">
-            <summary>Calcula la profundidad (altura) del árbol. </summary>
-            <returns>Retorna el valor de la profundidad (Depth) </returns>
         </member>
     </members>
 </doc>
