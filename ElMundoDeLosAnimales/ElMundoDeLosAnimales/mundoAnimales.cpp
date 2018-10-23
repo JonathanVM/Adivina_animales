@@ -5,12 +5,14 @@
 MundoAnimales::MundoAnimales() {
 	root = actual = anterior = nullptr;
 	terminoJuego = false;
+	arbol = new Arbol();
 	valoresPorDefecto();
 	//leerArchivo();
 }
 
 ///<summary>Destructor de la clase MundoAnimales</summary>
 MundoAnimales::~MundoAnimales() {
+	delete arbol;
 	guardarArchivo();
 }
 
@@ -41,7 +43,7 @@ void MundoAnimales::armarArbolArhivo(NODOPTR actual,
 		getline(archivo, cadena);
 		actual = root = crearNodo(cadena);
 		if (!root) {
-			borrarArbol(root);
+			arbol->borrarArbol(root);
 			valoresPorDefecto();
 		}
 		getline(archivo, cadena);
@@ -52,7 +54,7 @@ void MundoAnimales::armarArbolArhivo(NODOPTR actual,
 		actual->left = aux;
 		armarArbolArhivo(actual->left, archivo, derecha, seguir);
 		if (derecha == "") {
-			borrarArbol(root);
+			arbol->borrarArbol(root);
 			valoresPorDefecto();
 			return;
 		}
@@ -296,5 +298,5 @@ NODOPTR MundoAnimales::crearNodo(std::string nuevo) {
 ///<summary></summary>
 ///<returns></returns>
 void MundoAnimales::imprimirArbol() {
-	imprimeArbol(root);
+	arbol->imprimeArbol(root);
 }

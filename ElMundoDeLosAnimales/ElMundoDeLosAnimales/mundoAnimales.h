@@ -1,4 +1,4 @@
-#include "arbolbin.h"
+#include "arbol.h"
 
 #ifndef MUNDOANIMALES_H
 #define MUNDOANIMALES_H
@@ -14,6 +14,7 @@ private:
 	NODOPTR actual;
 	NODOPTR anterior;
 	bool terminoJuego;
+	Arbol * arbol;
 
 	bool moverCaracteristicaArriba(NODOPTR, NODOPTR, unsigned int);
 	bool moverCaracteristicaAbajo(NODOPTR, NODOPTR, unsigned int);
