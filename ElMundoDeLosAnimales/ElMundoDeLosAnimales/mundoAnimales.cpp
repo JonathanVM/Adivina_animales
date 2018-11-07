@@ -179,8 +179,13 @@ bool MundoAnimales::insertarNuevo(std::string caracteristica, std::string animal
 		anterior->right = carac;
 		return true;
 	}
-	else
+	else {
+		if (carac)
+			delete carac;
+		if (anim)
+			delete anim;
 		return false;
+	}
 }
 
 ///<summary>Al terminar de jugar en la parte de adivinar una palabra, 
