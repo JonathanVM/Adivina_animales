@@ -21,6 +21,7 @@ public:
 	std::string siguientePalabra(char);
 	bool finDelJuego();
 	void imprimirArbol();
+	void guardarArbol();
 };
 
 #endif // !CONTROL_H

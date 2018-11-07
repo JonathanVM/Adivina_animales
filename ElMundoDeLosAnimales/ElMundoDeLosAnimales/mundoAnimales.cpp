@@ -5,13 +5,11 @@
 MundoAnimales::MundoAnimales() {
 	root = actual = anterior = nullptr;
 	terminoJuego = false;
-	valoresPorDefecto();
-	//leerArchivo();
+	leerArchivo();
 }
 
 ///<summary>Destructor de la clase MundoAnimales</summary>
 MundoAnimales::~MundoAnimales() {
-	guardarArchivo();
 }
 
 ///<summary>Lee del archivo solo si existe y si no carga los valores por defecto</summary>
@@ -37,33 +35,66 @@ void MundoAnimales::armarArbolArhivo(NODOPTR actual,
 		return;
 	}
 	NODOPTR aux;
-	if (!actual && cadena == "root") {
-		getline(archivo, cadena);
-		actual = root = crearNodo(cadena);
-		if (!root) {
-			borrarArbol(root);
-			valoresPorDefecto();
+	if (cadena == "root" || cadena == "left" || cadena == "right") {
+		if (!actual && cadena == "root") {
+			getline(archivo, cadena);
+			if (cadena != "root" && cadena != "left" && cadena != "right") {
+				actual = root = crearNodo(cadena);
+				if (!root) {
+					borrarArbol(root);
+					valoresPorDefecto();
+				}
+			}
+			else {
+				borrarArbol(root);
+				valoresPorDefecto();
+				return;
+			}
+			getline(archivo, cadena);
+			if (cadena != "left" && cadena != "right") {
+				borrarArbol(root);
+				valoresPorDefecto();
+				return;
+			}
 		}
-		getline(archivo, cadena);
-	}
-	if (cadena == "left") {
-		getline(archivo, cadena);
-		aux = crearNodo(cadena);
-		actual->left = aux;
-		armarArbolArhivo(actual->left, archivo, derecha, seguir);
-		if (derecha == "") {
-			borrarArbol(root);
-			valoresPorDefecto();
-			return;
+		if (cadena == "left") {
+			getline(archivo, cadena);
+			if (cadena != "root" && cadena != "left" && cadena != "right") {
+				aux = crearNodo(cadena);
+				actual->left = aux;
+				armarArbolArhivo(actual->left, archivo, derecha, seguir);
+				if (derecha == "") {
+					borrarArbol(root);
+					valoresPorDefecto();
+					return;
+				}
+				aux = crearNodo(derecha);
+				actual->right = aux;
+				derecha = "";
+				armarArbolArhivo(actual->right, archivo, derecha, seguir);
+			}
+			else {
+				borrarArbol(root);
+				valoresPorDefecto();
+				return;
+			}
 		}
-		aux = crearNodo(derecha);
-		actual->right = aux;
-		derecha = "";
-		armarArbolArhivo(actual->right, archivo, derecha , seguir);
+		if (cadena == "right") {
+			getline(archivo, cadena);
+			if (cadena != "root" && cadena != "left" && cadena != "right") {
+				derecha = cadena;
+				return;
+			}
+			else {
+				borrarArbol(root);
+				valoresPorDefecto();
+				return;
+			}	
+		}
 	}
-	if (cadena == "right") {
-		getline(archivo, cadena);
-		derecha = cadena;
+	else {
+		borrarArbol(root);
+		valoresPorDefecto();
 		return;
 	}
 }

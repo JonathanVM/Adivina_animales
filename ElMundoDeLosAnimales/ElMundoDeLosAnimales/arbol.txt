@@ -1,11 +1,11 @@
 root
 ave
 left
-reptil
-left
 mamifero
 left
 pez
+left
+reptil
 left
 invertebrado
 left
@@ -16,6 +16,8 @@ right
 Rana
 right
 Arana
+right
+Lagarto
 right
 Beta
 right
@@ -28,7 +30,5 @@ right
 Gato
 right
 Ballena
-right
-Lagarto
 right
 Aguila

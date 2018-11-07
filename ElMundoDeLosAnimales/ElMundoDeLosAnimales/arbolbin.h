@@ -1,12 +1,8 @@
 ﻿#ifndef ARBOLBIN_H
 #define ARBOLBIN_H
 
-#include <fstream>
 #include <iostream>
-#include <queue>
 #include <string>
-#include <vector>
-#include <iomanip>
 
 struct nodo {
 	std::string elemento;
@@ -21,7 +17,6 @@ typedef struct nodo* NODOPTR;
 //                PROTOTIPOS DE FUNCIÓN                      ##   
 //#############################################################
 static void borrarArbol(NODOPTR);
-static NODOPTR buscarNodo(NODOPTR, std::string);
 static void imprimeArbol(NODOPTR);
 static void print(NODOPTR, std::string, bool);
 //#############################################################
@@ -34,23 +29,6 @@ void borrarArbol(NODOPTR actual) {
 		borrarArbol(actual->right);
 		delete actual;
 	}
-}
-
-///////////////////////////////////////////////////////////////////////
-/// <summary> Busca el nodo que contiene el elemento dado por parámetro. </summary> 
-/// <returns> Retorna un apuntador al nodo encontrado o
-/// NULL si no lo encontró. </returns>
-NODOPTR buscarNodo(NODOPTR actual, std::string dato) {
-	if (actual) {
-		if (actual->elemento == dato)
-			return actual;
-		NODOPTR aux;
-		if ((aux = buscarNodo(actual->right, dato)))
-			return aux;
-		if ((aux = buscarNodo(actual->left, dato)))
-			return aux;
-	}
-	return nullptr;
 }
 
 ///////////////////////////////////////////////////////////////////

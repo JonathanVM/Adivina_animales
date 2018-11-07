@@ -70,4 +70,6 @@ void Control:: imprimirArbol() {
 	mundoA->imprimirArbol();
 }
 
-
+void Control::guardarArbol() {
+	mundoA->guardarArchivo();
+}

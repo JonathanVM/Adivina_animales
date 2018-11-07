@@ -73,6 +73,7 @@ void Interfaz::juego() {
 			}
 		}
 	} while (opcion != "3");
+	control->guardarArbol();
 }
 
 ///<summary></summary>
