@@ -7,7 +7,7 @@
 #include <string>
 
 
-///<summary>Implementacion de la clase Control</summary>
+///<summary>Implementacion de la clase Control, que interactua desde el modelo hasta la interfaz(Control)</summary>
 class Control {
 private:
 	MundoAnimales *mundoA;

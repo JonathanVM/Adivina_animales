@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 
+///<summary>Implementacion de metodos que manejan un arbol.</summary>
+
 struct nodo {
 	std::string elemento;
 	struct nodo* left;
@@ -35,8 +37,7 @@ void borrarArbol(NODOPTR actual) {
 ///////////Imprimir Arbol, grafico////////////////////////////////
 
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Imprime arbol de forma horizontal, este metodo usa otro metodo complementario. </summary>
 void imprimeArbol(NODOPTR p){
 	std::string guion, signo;
 	guion = (char)196;

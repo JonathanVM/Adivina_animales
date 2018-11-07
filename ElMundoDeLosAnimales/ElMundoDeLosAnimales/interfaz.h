@@ -6,7 +6,7 @@
 #include "control.h"
 
 
-///<summary>Implementacion de la clase Interfaz</summary>
+///<summary>Implementacion de la clase Interfaz(Vista)</summary>
 class Interfaz {
 private:
 	std::string const MARGEN = "\t\t\t";

@@ -13,8 +13,7 @@ Control::~Control() {
 	delete mundoA;
 }
 
-///<summary>Metodo que agregar una nueva caracteristica al arbol del sistema</summary>
-
+///<summary>Metodo que agrega una nueva caracteristica al arbol del sistema</summary>
 bool Control::agregar(std::string caracteristica, std::string animal) {
 	if (!mundoA->existePalabra(caracteristica)  && !mundoA->existePalabra(animal)) {
 		return mundoA->insertarNuevo(caracteristica, animal);
@@ -27,13 +26,6 @@ bool Control::agregar(std::string caracteristica, std::string animal) {
 void Control::reiniciar() {
 	mundoA->reiniciar();
 }
-
-
-///<summary></summary>
-///<returns></returns>
-void Control::terminar() {
-}
-
 
 ///<summary></summary>
 ///<returns></returns>

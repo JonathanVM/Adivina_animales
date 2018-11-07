@@ -103,6 +103,7 @@ void MundoAnimales::armarArbolArhivo(NODOPTR actual,
 void MundoAnimales::guardarArchivo() {
 	std::ofstream archivo("arbol.txt");
 	guardarArchivo(archivo, root, 0);
+	archivo.close();
 }
 
 ///<summary>Va guardando en el archivo dado por parametro linea por linea, identificando izquierda, derecha y la raiz</summary>
@@ -168,7 +169,7 @@ void MundoAnimales::valoresPorDefecto() {
 }
 
 ///<summary>Error, si anterior no existe, eliminar memoria, igual si solo uno se creo, liberar la memoria del otro</summary>
-///<returns></returns>
+///<returns>Retorna true si se insertaran las cosas exitosamente, Retorna false si no se agrego exitosamente.</returns>
 bool MundoAnimales::insertarNuevo(std::string caracteristica, std::string animal) {
 	NODOPTR carac = crearNodo(caracteristica);
 	NODOPTR anim = crearNodo(animal);
@@ -182,21 +183,22 @@ bool MundoAnimales::insertarNuevo(std::string caracteristica, std::string animal
 		return false;
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Al terminar de jugar en la parte de adivinar una palabra, 
+///y si la persona quiere volver a jugar, todos los valores tiene que ser resetados para un nuevo juego.</summary>
 void MundoAnimales::reiniciar() {
 	actual = anterior = root;
 	terminoJuego = false;
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Antes de agregar un animal nuevo o una caracteristica nueva, primero se verifica si la palabra ya 
+///existe en el arbol.</summary>
+///<returns>Si la palabra existe retirna true, y si la palabra no existe retorna false.</returns>
 bool MundoAnimales::existePalabra(std::string palabra) {
 	return existePalabra(palabra, root);
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Metodo recursivo que recorre un arbol para encontrar una palabra.</summary>
+///<returns>Si encuentra la palabra retorna true, si no encuentra la palabra retorna false.</returns>
 bool MundoAnimales::existePalabra(std::string palabra, NODOPTR actual) {
 	if (actual == nullptr)
 		return false;
@@ -210,7 +212,11 @@ bool MundoAnimales::existePalabra(std::string palabra, NODOPTR actual) {
 ///<summary>
 /// metodo = true => moverCaracteristicaArriba
 /// metodo = false => moverCaracteristicaAbajo
+/// Reordena el arbol por la caracteristica relevante en el arbol, ya sea mover el nodo de la caracteristica 
+/// actual hacia arriba o hacia abajo. 
 ///</summary>
+///<returns>Retorna true si la caracteristica se movio satisfactoriamente, retorna false si la 
+/// caracteristica no se movio satisfactoriamente.</returns>
 bool MundoAnimales::moverCaracteristica(unsigned int posActual, unsigned int posNueva, bool metodo) {
 	NODOPTR inicio, destino;
 	if (posActual > 1 || metodo)
@@ -227,8 +233,11 @@ bool MundoAnimales::moverCaracteristica(unsigned int posActual, unsigned int pos
 }
 
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Metodo mueve un nodo del arbol hacia abajo al de la posicion. Este metodo recibe 
+/// el nodo que se quiere mover, y un nodo antes a la de la posicion nueva, tambien recibe una posicion 
+/// nueva.</summary>
+///<returns>Retorna true si la caracteristica se movio satisfactoriamente, retorna false si la 
+/// caracteristica no se movio satisfactoriamente.</returns>
 bool MundoAnimales::moverCaracteristicaArriba(NODOPTR inicio, NODOPTR destino, unsigned int posNueva) {
 	NODOPTR aux;
 	if (!inicio || !destino)
@@ -246,8 +255,11 @@ bool MundoAnimales::moverCaracteristicaArriba(NODOPTR inicio, NODOPTR destino, u
 	return true;
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Metodo mueve un nodo del arbol hacia abajo al de la posicion. Este metodo recibe 
+/// el nodo que se quiere mover, y el nodo correspondiente a la posicion nueva, tambien recibe una posicion 
+/// nueva.</summary>
+///<returns>Retorna true si la caracteristica se movio satisfactoriamente, retorna false si la 
+/// caracteristica no se movio satisfactoriamente.</returns>
 bool MundoAnimales::moverCaracteristicaAbajo(NODOPTR inicio, NODOPTR destino, unsigned int posActual) {
 	NODOPTR aux;
 	if (!inicio || !destino)
