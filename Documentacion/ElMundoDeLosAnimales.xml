@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        "ElMundoDeLosAnimales"
+    </assembly>
+    <members>
+        <member name="M:MundoAnimales.imprimirArbol">
+            <summary>Metodo que se encarga de mostrar el arbol de forma grafica al usuario.</summary>
+        </member>
+        <member name="M:MundoAnimales.crearNodo(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;)">
+            <summary> Crea un nuevo nodo, siempre y cuando haya memoria disponible.</summary>
+            <returns>Retorna un nuevo nodo, o retorna null si no hay memoria </returns>
+        </member>
+        <member name="M:MundoAnimales.obtenerCaracteristicaGeneral(System.UInt32)">
+            <summary>Busca en el arbol una caracteristica relevante, correspondiente a la posicion 
+que se le pasa. Esta posicion se asume que es un nivel.</summary>
+            <returns>Retorna el nodo de la caracteristica relevante, con la posicion perspectiva.</returns>
+        </member>
+        <member name="M:MundoAnimales.adivinar(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte)">
+            <summary>Obtiene la palabra que sigue a la del arbol. Por donde el usuario va adivinandol </summary>
+            <returns>Retorna un string con la palabra que sigue, segun la decision del usuario. 
+Si dijo el usuario si. Avanza a la derecha del arbol, si dice que no, avanza por la izquierda ene l arbol. </returns>
+        </member>
+        <member name="M:MundoAnimales.finDelJuego">
+            <summary>Metodo que facilita saber si la partida o juego actual, ya termino o aun no. </summary>
+            <returns>Retorna <code>true</code> si el juego ya termino. Retorna <code>false</code> si el juego
+aun no termina. </returns>
+        </member>
+        <member name="M:MundoAnimales.moverCaracteristicaAbajo(nodo*,nodo*,System.UInt32)">
+            <summary>Metodo mueve un nodo del arbol hacia abajo al de la posicion. Este metodo recibe 
+el nodo que se quiere mover, y el nodo correspondiente a la posicion nueva, tambien recibe una posicion 
+nueva.</summary>
+            <returns>Retorna true si la caracteristica se movio satisfactoriamente, retorna false si la 
+caracteristica no se movio satisfactoriamente.</returns>
+        </member>
+        <member name="M:MundoAnimales.moverCaracteristicaArriba(nodo*,nodo*,System.UInt32)">
+            <summary>Metodo mueve un nodo del arbol hacia abajo al de la posicion. Este metodo recibe 
+el nodo que se quiere mover, y un nodo antes a la de la posicion nueva, tambien recibe una posicion 
+nueva.</summary>
+            <returns>Retorna true si la caracteristica se movio satisfactoriamente, retorna false si la 
+caracteristica no se movio satisfactoriamente.</returns>
+        </member>
+        <member name="M:MundoAnimales.moverCaracteristica(System.UInt32,System.UInt32,System.Boolean)">
+            <summary>
+metodo = true =&gt; moverCaracteristicaArriba
+metodo = false =&gt; moverCaracteristicaAbajo
+Reordena el arbol por la caracteristica relevante en el arbol, ya sea mover el nodo de la caracteristica 
+actual hacia arriba o hacia abajo. 
+</summary>
+            <returns>Retorna true si la caracteristica se movio satisfactoriamente, retorna false si la 
+caracteristica no se movio satisfactoriamente.</returns>
+        </member>
+        <member name="M:MundoAnimales.existePalabra(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,nodo*)">
+            <summary>Metodo recursivo que recorre un arbol para encontrar una palabra.</summary>
+            <returns>Si encuentra la palabra retorna true, si no encuentra la palabra retorna false.</returns>
+        </member>
+        <member name="M:MundoAnimales.existePalabra(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;)">
+            <summary>Antes de agregar un animal nuevo o una caracteristica nueva, primero se verifica si la palabra ya 
+existe en el arbol.</summary>
+            <returns>Si la palabra existe retirna true, y si la palabra no existe retorna false.</returns>
+        </member>
+        <member name="M:MundoAnimales.reiniciar">
+            <summary>Al terminar de jugar en la parte de adivinar una palabra, 
+y si la persona quiere volver a jugar, todos los valores tiene que ser resetados para un nuevo juego.</summary>
+        </member>
+        <member name="M:MundoAnimales.insertarNuevo(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;)">
+            <summary>Error, si anterior no existe, eliminar memoria, igual si solo uno se creo, liberar la memoria del otro</summary>
+            <returns>Retorna true si se insertaran las cosas exitosamente, Retorna false si no se agrego exitosamente.</returns>
+        </member>
+        <member name="M:MundoAnimales.valoresPorDefecto">
+            <summary>En caso de no existir el archivo o no cumplir con un formato valido, se procede a utilizar este metodo.
+Este se encarga de cargar valores por defecto para iniciar a jugar.
+</summary>
+        </member>
+        <member name="M:MundoAnimales.guardarArchivo(std.basic_ofstream&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,nodo*,System.Int32)">
+            <summary>Va guardando en el archivo dado por parametro linea por linea, identificando izquierda, derecha y la raiz</summary>
+        </member>
+        <member name="M:MundoAnimales.guardarArchivo">
+            <summary>Si no existe el archivo, lo crea y sino lo sobrescribe</summary>
+        </member>
+        <member name="M:MundoAnimales.armarArbolArhivo(nodo*,std.basic_ifstream&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte}&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;*!System.Runtime.CompilerServices.IsImplicitlyDereferenced,System.Boolean)">
+            <summary>Arma el arbol con los datos provenientes del archivo.
+Se asume que un nodo no hoja siempre tiene dos hijos, en caso de que los datos del archivo no cumplieran con esto, 
+se cargaran los valores por defecto
+</summary>
+        </member>
+        <member name="M:MundoAnimales.leerArchivo">
+            <summary>Lee del archivo solo si existe y si no carga los valores por defecto</summary>
+        </member>
+        <member name="M:MundoAnimales.Dispose">
+            <summary>Destructor de la clase MundoAnimales</summary>
+        </member>
+        <member name="M:MundoAnimales.#ctor">
+            <summary>Constructor de la clase mundo animales, inicializa los atributos</summary>
+        </member>
+        <member name="M:Control.guardarArbol">
+            <summary>Metodo que guarda en el archivo el estado actual del arbol. 
+Sobreescribiendo el archivo que se encontraba anteriormente. </summary>
+        </member>
+        <member name="M:Control.imprimirArbol">
+            <summary>Metodo que se encarga de mostrar el arbol de forma grafica al usuario.</summary>
+        </member>
+        <member name="M:Control.finDelJuego">
+            <summary>Metodo que facilita saber si la partida o juego actual, ya termino o aun no. </summary>
+            <returns>Retorna <code>true</code> si el juego ya termino. Retorna <code>false</code> si el juego
+aun no termina. </returns>
+        </member>
+        <member name="M:Control.siguientePalabra(System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte)">
+            <summary>Obtiene la palabra que sigue a la del arbol. Por donde el usuario va adivinandol </summary>
+            <returns>Retorna un string con la palabra que sigue, segun la decision del usuario. 
+Si dijo el usuario si. Avanza a la derecha del arbol, si dice que no, avanza por la izquierda ene l arbol. </returns>
+        </member>
+        <member name="M:Control.mover(System.UInt32,System.UInt32)">
+            <summary>Metodo en control que se encarga de subir y bajar caracteristicas relevantes del arbol.</summary>
+            <remarks>Este metodo recibe dos parametros, el nivel actual en el que se encuentra la caracteristica y 
+el nivel a donde se quiere mover dicha caracteristica. Si la posicion actual es menor a la nueva posicion 
+esto quiere decir que la caracteristica se movera para arriba, y si la posicion actual es mayor a la nueva 
+posicion entonces la caracteristica se movera para abajo.</remarks>
+            <returns>Si ambas posiciones son iguales, el metodo lanzara una excepcion, y si las posiciones son menor o mayor
+a las establecidas tambien lanzara una excepcion.</returns>
+        </member>
+        <member name="M:Control.reiniciar">
+            <summary>Metodo que devuelve algunos atributos a su estado inicial.</summary>
+            <remarks>Como la persona puede jugar varias veces, cada vez que termina una partida(Por ejemplo), 
+se limpiaran algunos atributos: el nodo actual o anterior que volveran a apuntar a root y el atributo 
+de que termino el juego volvera a false. </remarks>
+        </member>
+        <member name="M:Control.agregar(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;)">
+            <summary>Metodo que agrega una nueva caracteristica y un nuevo animal al arbol del sistema.</summary>
+            <remarks>Este metodo recibe dos string, la nueva caracteristica y el nuevo animal.</remarks>
+            <returns>Retorna <code>true</code> si los datos se agregaron correctamente.
+Retorna <code>false</code> si los datos no se agregaron correctamente.</returns>
+        </member>
+        <member name="M:Control.Dispose">
+            <summary>Destructor de la clase Control</summary>
+            <remarks>Destruye la instancia a la clase del modelo</remarks>
+        </member>
+        <member name="M:Control.#ctor">
+            <summary>Constructor de la clase Control</summary>
+            <remarks>Inicializa una instancia a la clase del modelo</remarks>
+        </member>
+        <member name="M:main">
+            <summary>
+Bienvenido a nuestro mundo de animales
+Integrantes:
+Jonathan Vásquez Mora
+Delia Hernández Ruiz
+</summary>
+        </member>
+        <member name="M:Interfaz.respuestaAceptada(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;)">
+            <summary>Metodo que valida las diferentes opciones de respuesta de los menu que digita el usuario.</summary>
+            <returns />
+        </member>
+        <member name="M:Interfaz.reordenar">
+            <summary>Metodo que muestra el arbol de manera grafica al usuario, este escoge de ahi los niveles que quiere mover.</summary>
+        </member>
+        <member name="M:Interfaz.volverJuego(std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;)">
+            <summary>Metodo que sirve como un menu para el usuario. Una vez ejecutada una accion se le muestra este menu. </summary>
+        </member>
+        <member name="M:Interfaz.resultado(System.Boolean)">
+            <summary>Metodo que se encarga de decirle al usuario si gano el juego o perdio. En caso de haber perdido, 
+le pide al usuario que digite el animal en el que estaba pensando. 
+Y se le pide tambien digitar una caracteristica relevante que este posea. </summary>
+        </member>
+        <member name="M:Interfaz.adivinar">
+            <summary>Metodo que se encarga de ir adivinando el animal en el que esta pensando el usuario.</summary>
+            <returns>Retorna true si el usuario adivina o false si el usuario no adivino.</returns>
+        </member>
+        <member name="M:Interfaz.juego">
+            <summary>Metodo principal del juego, que contiene todas las opciones disponibles.
+es un metodo iterativo, con el que el usuario va interactuar desde una primera vista.</summary>
+        </member>
+        <member name="M:Interfaz.imprimirTitulo">
+            <summary>Imprime solo el titulo de encabezado para usar en las otras opciones del juego, como adivinar o reordenar.</summary>
+        </member>
+        <member name="M:Interfaz.menu">
+            <summary>Metodo que contiene el encabezado del inicio del juego.
+Este muestra las opciones que el usuario puede usar en un inicio.</summary>
+        </member>
+        <member name="M:Interfaz.Dispose">
+            <summary>Destructor de la clase interfaz.</summary>
+        </member>
+        <member name="M:Interfaz.#ctor">
+            <summary>Declaracion de la clase Interfaz</summary>
+            <remarks>Inicializa el atributo de control. </remarks>
+        </member>
+        <member name="T:Interfaz">
+            <summary>Implementacion de la clase Interfaz(Vista)</summary>
+        </member>
+        <member name="T:Control">
+            <summary>Implementacion de la clase Control, que interactua desde el modelo hasta la interfaz(Control)</summary>
+        </member>
+        <member name="T:MundoAnimales">
+            <summary>Implementacion de la clase MundoAnimales (Modelo)</summary>
+        </member>
+        <member name="M:print(nodo*,std.basic_string&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte,std.char_traits{System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte},std.allocator&lt;System.SByte!System.Runtime.CompilerServices.IsSignUnspecifiedByte&gt;&gt;,System.Boolean)">
+            <summary>Metodo recursivo que recorre cada nodo del arbol, y lo va imprimiendo de manera horizontal.</summary>
+        </member>
+        <member name="M:imprimeArbol(nodo*)">
+            <summary>Imprime arbol de forma horizontal, este metodo usa otro metodo complementario. </summary>
+        </member>
+        <member name="M:borrarArbol(nodo*)">
+            <summary> Elimina el árbol completo, nodo por nodo. Utiliza un recorrido Pos Orden para tal fin. </summary>
+        </member>
+        <member name="T:nodo">
+            <summary>Implementacion de metodos que manejan un arbol.</summary>
+            <summary>Declaracion de la clase nodo, junto con una etiqueta NODOPTR para la utilizacion de dichos nodos. </summary>
+        </member>
+    </members>
+</doc>
