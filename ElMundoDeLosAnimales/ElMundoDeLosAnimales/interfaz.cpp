@@ -1,19 +1,18 @@
 #include "interfaz.h"
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Declaracion de la clase Interfaz</summary>
+///<remarks>Inicializa el atributo de control. </remarks>
 Interfaz::Interfaz() {
 	control = new Control();
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Destructor de la clase interfaz.</summary>
 Interfaz::~Interfaz() {
 	delete control;
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Metodo que contiene el encabezado del inicio del juego.
+/// Este muestra las opciones que el usuario puede usar en un inicio.</summary>
 void Interfaz::menu() {
 	std::cout << "\n\n" <<
 		MARGEN << "--------------------------------------------------------------\n" <<
@@ -30,8 +29,7 @@ void Interfaz::menu() {
 		MARGEN << "      Digite una opcion: ";
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Imprime solo el titulo de encabezado para usar en las otras opciones del juego, como adivinar o reordenar.</summary>
 void Interfaz::imprimirTitulo() {
 	std::cout << "\n\n" <<
 		MARGEN << "--------------------------------------------------------------\n" <<
@@ -41,8 +39,8 @@ void Interfaz::imprimirTitulo() {
 		MARGEN << "--------------------------------------------------------------\n\n";
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Metodo principal del juego, que contiene todas las opciones disponibles.
+/// es un metodo iterativo, con el que el usuario va interactuar desde una primera vista.</summary>
 void Interfaz::juego() {
 	std::string opcion = "", nuevaOpcion = "";
 
@@ -76,8 +74,8 @@ void Interfaz::juego() {
 	control->guardarArbol();
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Metodo que se encarga de ir adivinando el animal en el que esta pensando el usuario.</summary>
+///<returns>Retorna true si el usuario adivina o false si el usuario no adivino.</returns>
 bool Interfaz::adivinar() {
 	char respuesta = ' ';
 	std::string pregunta, stringActual;
@@ -107,8 +105,9 @@ bool Interfaz::adivinar() {
 	return (respuesta == 'S');
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Metodo que se encarga de decirle al usuario si gano el juego o perdio. En caso de haber perdido, 
+/// le pide al usuario que digite el animal en el que estaba pensando. 
+///Y se le pide tambien digitar una caracteristica relevante que este posea. </summary>
 void Interfaz::resultado(bool result) {
 	if (result) {
 		std::cout << "\n\n" <<
@@ -135,8 +134,7 @@ void Interfaz::resultado(bool result) {
 	}
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Metodo que sirve como un menu para el usuario. Una vez ejecutada una accion se le muestra este menu. </summary>
 std::string Interfaz::volverJuego(std::string mensaje) {
 	std::string opcion;
 	std::cout << "\n" <<
@@ -159,8 +157,7 @@ std::string Interfaz::volverJuego(std::string mensaje) {
 	return opcion;
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Metodo que muestra el arbol de manera grafica al usuario, este escoge de ahi los niveles que quiere mover.</summary>
 void Interfaz::reordenar() {
 
 	system("cls");
@@ -199,17 +196,17 @@ void Interfaz::reordenar() {
 	}
 }
 
-///<summary></summary>
+///<summary>Metodo que valida las diferentes opciones de respuesta de los menu que digita el usuario.</summary>
 ///<returns></returns>
 bool Interfaz::respuestaAceptada(std::string cadena, std::string ver) {
 	if (ver == "Si") {
-		if (cadena == "si" || cadena == "Si" || cadena == "sI" || cadena == "SI") {
+		if (cadena == "si" || cadena == "Si" || cadena == "sI" || cadena == "SI" || cadena == "S" || cadena == "s") {
 			return true;
 		}
 		return false;
 	}
 	else if(ver == "No"){
-		if (cadena == "No" || cadena == "NO" || cadena == "nO" || cadena == "no") {
+		if (cadena == "No" || cadena == "NO" || cadena == "nO" || cadena == "no" || cadena == "n" || cadena == "N") {
 			return true;
 		}
 		return false;

@@ -31,7 +31,7 @@ public:
 	bool existePalabra(std::string,NODOPTR);
 	bool existePalabra(std::string);
 	bool finDelJuego();
-	std::string adivinar(char opcion);
+	std::string adivinar(char);
 	NODOPTR crearNodo(std::string);//Verifica si hay memoria o no.
 	NODOPTR obtenerCaracteristicaGeneral(unsigned int);
 	void imprimirArbol();

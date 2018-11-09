@@ -16,7 +16,6 @@ public:
 	~Control();
 	bool agregar(std::string, std::string);
 	void reiniciar();
-	void terminar();
 	void mover(unsigned int, unsigned int);
 	std::string siguientePalabra(char);
 	bool finDelJuego();

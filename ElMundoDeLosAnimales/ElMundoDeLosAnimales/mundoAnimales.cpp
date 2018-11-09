@@ -1,7 +1,6 @@
 #include "mundoAnimales.h"
 
 ///<summary>Constructor de la clase mundo animales, inicializa los atributos</summary>
-///<returns></returns>
 MundoAnimales::MundoAnimales() {
 	root = actual = anterior = nullptr;
 	terminoJuego = false;
@@ -282,14 +281,16 @@ bool MundoAnimales::moverCaracteristicaAbajo(NODOPTR inicio, NODOPTR destino, un
 	return true;
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Metodo que facilita saber si la partida o juego actual, ya termino o aun no. </summary>
+///<returns>Retorna <code>true</code> si el juego ya termino. Retorna <code>false</code> si el juego
+/// aun no termina. </returns>
 bool MundoAnimales::finDelJuego() {
 	return terminoJuego;
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Obtiene la palabra que sigue a la del arbol. Por donde el usuario va adivinandol </summary>
+///<returns>Retorna un string con la palabra que sigue, segun la decision del usuario. 
+/// Si dijo el usuario si. Avanza a la derecha del arbol, si dice que no, avanza por la izquierda ene l arbol. </returns>
 std::string MundoAnimales::adivinar(char opc = ' ') {
 	std::string valor = "";
 	if (actual) {
@@ -312,8 +313,9 @@ std::string MundoAnimales::adivinar(char opc = ' ') {
 	return valor;
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Busca en el arbol una caracteristica relevante, correspondiente a la posicion 
+/// que se le pasa. Esta posicion se asume que es un nivel.</summary>
+///<returns>Retorna el nodo de la caracteristica relevante, con la posicion perspectiva.</returns>
 NODOPTR MundoAnimales::obtenerCaracteristicaGeneral(unsigned int pos) {
 	if (root) {
 		actual = root;
@@ -341,8 +343,7 @@ NODOPTR MundoAnimales::crearNodo(std::string nuevo) {
 	}
 }
 
-///<summary></summary>
-///<returns></returns>
+///<summary>Metodo que se encarga de mostrar el arbol de forma grafica al usuario.</summary>
 void MundoAnimales::imprimirArbol() {
 	imprimeArbol(root);
 }

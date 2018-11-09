@@ -5,7 +5,7 @@
 #include <string>
 
 ///<summary>Implementacion de metodos que manejan un arbol.</summary>
-
+///<summary>Declaracion de la clase nodo, junto con una etiqueta NODOPTR para la utilizacion de dichos nodos. </summary>
 struct nodo {
 	std::string elemento;
 	struct nodo* left;
@@ -48,6 +48,7 @@ void imprimeArbol(NODOPTR p){
 	print(p, " ", true);
 }
 
+///<summary>Metodo recursivo que recorre cada nodo del arbol, y lo va imprimiendo de manera horizontal.</summary>
 void print(NODOPTR node, std::string indent, bool is_tail) {
 	std::string guion, signo;
 	guion = (char)196;
